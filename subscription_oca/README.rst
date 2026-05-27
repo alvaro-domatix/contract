@@ -71,6 +71,19 @@ To create subscriptions with the sale of a product:
    *Subscribable product* and *Subscription template*
 3. Create a sales order with the product and confirm it.
 
+Recurring revenue (MRR / ARR):
+
+- Each subscription exposes its *Monthly recurring revenue* (MRR) and
+  *Annual recurring revenue* (ARR). The line subtotals (net of
+  discount, excluding taxes) are normalised to a monthly amount
+  according to the template recurrence and then **converted to the
+  company currency** using the rate at the subscription start date.
+  This keeps totals comparable when subscriptions use pricelists in
+  different currencies.
+- Use the *Active recurring revenue* filter to restrict the figures to
+  in-progress subscriptions, which reflects live recurring revenue
+  rather than the theoretical value of draft or closed subscriptions.
+
 Known issues / Roadmap
 ======================
 
