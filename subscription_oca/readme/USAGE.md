@@ -24,3 +24,10 @@ To create subscriptions with the sale of a product:
 2.  Create the product and in the sales tab, complete the fields
     *Subscribable product* and *Subscription template*
 3.  Create a sales order with the product and confirm it.
+
+Invoice period tracking:
+
+-   Each generated invoice line records the subscription and the billed
+    period (*Subscription period start* / *end*), and the line
+    description shows the period it covers, so a customer reading the
+    invoice knows exactly which recurrence is being charged.
