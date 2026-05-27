@@ -378,6 +378,8 @@ ul.auto-toc {
 <p>This module allows creating subscriptions that generate recurring
 invoices or orders. It also enables the sale of products that generate
 subscriptions.</p>
+<p>Subscriptions can be renewed into a linked child subscription, keeping
+the genealogy between the original contract and its renewals.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -420,6 +422,20 @@ reached.</li>
 <li>Create the product and in the sales tab, complete the fields
 <em>Subscribable product</em> and <em>Subscription template</em></li>
 <li>Create a sales order with the product and confirm it.</li>
+</ol>
+<p>To renew a subscription:</p>
+<ol class="arabic simple">
+<li>On an in-progress subscription, press <em>Renew</em>. A renewal quote is
+created as a child subscription in the <em>pre</em> stage, copying the
+template, lines, pricelist, fiscal position, partner and journal. Its
+start date is the finish date of the current subscription (or its
+next invoice date when there is no finish date).</li>
+<li>The <em>Renew</em> button is hidden while a renewal quote is still open.</li>
+<li>When the renewal is started, the original subscription is closed
+automatically and a link to the renewal is posted on its chatter.</li>
+<li>Use the <em>Parent contract</em> and <em>Renewals</em> smart buttons to navigate
+the renewal chain; <em>origin_subscription_id</em> always points at the
+first contract of the chain.</li>
 </ol>
 </div>
 <div class="section" id="known-issues-roadmap">

@@ -36,6 +36,9 @@ This module allows creating subscriptions that generate recurring
 invoices or orders. It also enables the sale of products that generate
 subscriptions.
 
+Subscriptions can be renewed into a linked child subscription, keeping
+the genealogy between the original contract and its renewals.
+
 **Table of contents**
 
 .. contents::
@@ -71,12 +74,26 @@ To create subscriptions with the sale of a product:
    *Subscribable product* and *Subscription template*
 3. Create a sales order with the product and confirm it.
 
+To renew a subscription:
+
+1. On an in-progress subscription, press *Renew*. A renewal quote is
+   created as a child subscription in the *pre* stage, copying the
+   template, lines, pricelist, fiscal position, partner and journal. Its
+   start date is the finish date of the current subscription (or its
+   next invoice date when there is no finish date).
+2. The *Renew* button is hidden while a renewal quote is still open.
+3. When the renewal is started, the original subscription is closed
+   automatically and a link to the renewal is posted on its chatter.
+4. Use the *Parent contract* and *Renewals* smart buttons to navigate
+   the renewal chain; *origin_subscription_id* always points at the
+   first contract of the chain.
+
 Known issues / Roadmap
 ======================
 
-- Refactor all the onchanges that have business logic to computed
-  write-able fields when possible. Keep onchanges only for UI purposes.
-- Add tests.
+-  Refactor all the onchanges that have business logic to computed
+   write-able fields when possible. Keep onchanges only for UI purposes.
+-  Add tests.
 
 Bug Tracker
 ===========
@@ -100,22 +117,22 @@ Authors
 Contributors
 ------------
 
-- Carlos Martínez <carlos@domatix.com>
-- Carolina Ferrer <carolina@domatix.com>
-- `Ooops404 <https://www.ooops404.com>`__:
+-  Carlos Martínez <carlos@domatix.com>
+-  Carolina Ferrer <carolina@domatix.com>
+-  `Ooops404 <https://www.ooops404.com>`__:
 
-  - Ilyas <irazor147@gmail.com>
+   -  Ilyas <irazor147@gmail.com>
 
-- `Sygel <https://www.sygel.es>`__:
+-  `Sygel <https://www.sygel.es>`__:
 
-  - Harald Panten
-  - Valentin Vinagre
-  - Alberto Martínez
+   -  Harald Panten
+   -  Valentin Vinagre
+   -  Alberto Martínez
 
-- Dennis Sluijk <d.sluijk@onestein.nl>
-- `IKU Solutions <https://www.iku.solutions>`__:
+-  Dennis Sluijk <d.sluijk@onestein.nl>
+-  `IKU Solutions <https://www.iku.solutions>`__:
 
-  - Yan Chirino <yan.chirino@iku.solutions>
+   -  Yan Chirino <yan.chirino@iku.solutions>
 
 Maintainers
 -----------
