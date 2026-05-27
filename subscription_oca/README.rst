@@ -36,6 +36,10 @@ This module allows creating subscriptions that generate recurring
 invoices or orders. It also enables the sale of products that generate
 subscriptions.
 
+Subscriptions can be paused and resumed, so they can be put on hold
+without being closed; the recurring cron skips paused subscriptions and
+can resume them automatically on a configured date.
+
 **Table of contents**
 
 .. contents::
@@ -71,12 +75,22 @@ To create subscriptions with the sale of a product:
    *Subscribable product* and *Subscription template*
 3. Create a sales order with the product and confirm it.
 
+To pause and resume a subscription:
+
+1. On an in-progress subscription, press *Pause*. A dialog lets you
+   optionally set a *Resume on* date.
+2. While paused, the cron skips the subscription: it is not invoiced,
+   started or closed.
+3. Press *Resume* to reactivate it manually. If a *Resume on* date was
+   set, the cron resumes the subscription automatically once that date
+   is reached. Leaving the date empty pauses it indefinitely.
+
 Known issues / Roadmap
 ======================
 
-- Refactor all the onchanges that have business logic to computed
-  write-able fields when possible. Keep onchanges only for UI purposes.
-- Add tests.
+-  Refactor all the onchanges that have business logic to computed
+   write-able fields when possible. Keep onchanges only for UI purposes.
+-  Add tests.
 
 Bug Tracker
 ===========
@@ -100,22 +114,22 @@ Authors
 Contributors
 ------------
 
-- Carlos Martínez <carlos@domatix.com>
-- Carolina Ferrer <carolina@domatix.com>
-- `Ooops404 <https://www.ooops404.com>`__:
+-  Carlos Martínez <carlos@domatix.com>
+-  Carolina Ferrer <carolina@domatix.com>
+-  `Ooops404 <https://www.ooops404.com>`__:
 
-  - Ilyas <irazor147@gmail.com>
+   -  Ilyas <irazor147@gmail.com>
 
-- `Sygel <https://www.sygel.es>`__:
+-  `Sygel <https://www.sygel.es>`__:
 
-  - Harald Panten
-  - Valentin Vinagre
-  - Alberto Martínez
+   -  Harald Panten
+   -  Valentin Vinagre
+   -  Alberto Martínez
 
-- Dennis Sluijk <d.sluijk@onestein.nl>
-- `IKU Solutions <https://www.iku.solutions>`__:
+-  Dennis Sluijk <d.sluijk@onestein.nl>
+-  `IKU Solutions <https://www.iku.solutions>`__:
 
-  - Yan Chirino <yan.chirino@iku.solutions>
+   -  Yan Chirino <yan.chirino@iku.solutions>
 
 Maintainers
 -----------

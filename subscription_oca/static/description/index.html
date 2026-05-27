@@ -378,6 +378,9 @@ ul.auto-toc {
 <p>This module allows creating subscriptions that generate recurring
 invoices or orders. It also enables the sale of products that generate
 subscriptions.</p>
+<p>Subscriptions can be paused and resumed, so they can be put on hold
+without being closed; the recurring cron skips paused subscriptions and
+can resume them automatically on a configured date.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -420,6 +423,16 @@ reached.</li>
 <li>Create the product and in the sales tab, complete the fields
 <em>Subscribable product</em> and <em>Subscription template</em></li>
 <li>Create a sales order with the product and confirm it.</li>
+</ol>
+<p>To pause and resume a subscription:</p>
+<ol class="arabic simple">
+<li>On an in-progress subscription, press <em>Pause</em>. A dialog lets you
+optionally set a <em>Resume on</em> date.</li>
+<li>While paused, the cron skips the subscription: it is not invoiced,
+started or closed.</li>
+<li>Press <em>Resume</em> to reactivate it manually. If a <em>Resume on</em> date was
+set, the cron resumes the subscription automatically once that date
+is reached. Leaving the date empty pauses it indefinitely.</li>
 </ol>
 </div>
 <div class="section" id="known-issues-roadmap">

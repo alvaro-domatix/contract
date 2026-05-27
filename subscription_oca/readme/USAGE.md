@@ -24,3 +24,13 @@ To create subscriptions with the sale of a product:
 2.  Create the product and in the sales tab, complete the fields
     *Subscribable product* and *Subscription template*
 3.  Create a sales order with the product and confirm it.
+
+To pause and resume a subscription:
+
+1.  On an in-progress subscription, press *Pause*. A dialog lets you
+    optionally set a *Resume on* date.
+2.  While paused, the cron skips the subscription: it is not invoiced,
+    started or closed.
+3.  Press *Resume* to reactivate it manually. If a *Resume on* date was
+    set, the cron resumes the subscription automatically once that date
+    is reached. Leaving the date empty pauses it indefinitely.
