@@ -24,3 +24,18 @@ To create subscriptions with the sale of a product:
 2.  Create the product and in the sales tab, complete the fields
     *Subscribable product* and *Subscription template*
 3.  Create a sales order with the product and confirm it.
+
+Invoice period tracking:
+
+-   Each generated invoice line records the subscription and the billed
+    period (*Subscription period start* / *end*), and the line
+    description shows the period it covers, so a customer reading the
+    invoice knows exactly which recurrence is being charged.
+-   The period is inclusive on both ends: it starts on the invoice date
+    and ends the day before the next renewal (e.g. a yearly subscription
+    invoiced on 2026-07-10 covers 2026-07-10 to 2027-07-09), so two
+    consecutive invoices never bill the same day twice.
+-   The dates in the line description follow the customer language
+    format. To force a specific format regardless of the language, set
+    it in *Sales > Configuration > Settings > Subscriptions > Period
+    date format* (a Babel pattern such as `dd/MM/yyyy`).

@@ -41,6 +41,15 @@ subscriptions.
 .. contents::
    :local:
 
+Configuration
+=============
+
+To choose the date format used for the billed period shown on invoice
+line descriptions, go to *Sales > Configuration > Settings*, section
+*Subscriptions*, and fill in *Period date format* with a Babel date
+pattern (for example ``dd/MM/yyyy``). When the field is left empty, the
+dates are formatted according to the customer language.
+
 Usage
 =====
 
@@ -71,12 +80,27 @@ To create subscriptions with the sale of a product:
    *Subscribable product* and *Subscription template*
 3. Create a sales order with the product and confirm it.
 
+Invoice period tracking:
+
+-  Each generated invoice line records the subscription and the billed
+   period (*Subscription period start* / *end*), and the line
+   description shows the period it covers, so a customer reading the
+   invoice knows exactly which recurrence is being charged.
+-  The period is inclusive on both ends: it starts on the invoice date
+   and ends the day before the next renewal (e.g. a yearly subscription
+   invoiced on 2026-07-10 covers 2026-07-10 to 2027-07-09), so two
+   consecutive invoices never bill the same day twice.
+-  The dates in the line description follow the customer language
+   format. To force a specific format regardless of the language, set it
+   in *Sales > Configuration > Settings > Subscriptions > Period date
+   format* (a Babel pattern such as ``dd/MM/yyyy``).
+
 Known issues / Roadmap
 ======================
 
-- Refactor all the onchanges that have business logic to computed
-  write-able fields when possible. Keep onchanges only for UI purposes.
-- Add tests.
+-  Refactor all the onchanges that have business logic to computed
+   write-able fields when possible. Keep onchanges only for UI purposes.
+-  Add tests.
 
 Bug Tracker
 ===========
@@ -100,22 +124,22 @@ Authors
 Contributors
 ------------
 
-- Carlos Martínez <carlos@domatix.com>
-- Carolina Ferrer <carolina@domatix.com>
-- `Ooops404 <https://www.ooops404.com>`__:
+-  Carlos Martínez <carlos@domatix.com>
+-  Carolina Ferrer <carolina@domatix.com>
+-  `Ooops404 <https://www.ooops404.com>`__:
 
-  - Ilyas <irazor147@gmail.com>
+   -  Ilyas <irazor147@gmail.com>
 
-- `Sygel <https://www.sygel.es>`__:
+-  `Sygel <https://www.sygel.es>`__:
 
-  - Harald Panten
-  - Valentin Vinagre
-  - Alberto Martínez
+   -  Harald Panten
+   -  Valentin Vinagre
+   -  Alberto Martínez
 
-- Dennis Sluijk <d.sluijk@onestein.nl>
-- `IKU Solutions <https://www.iku.solutions>`__:
+-  Dennis Sluijk <d.sluijk@onestein.nl>
+-  `IKU Solutions <https://www.iku.solutions>`__:
 
-  - Yan Chirino <yan.chirino@iku.solutions>
+   -  Yan Chirino <yan.chirino@iku.solutions>
 
 Maintainers
 -----------
