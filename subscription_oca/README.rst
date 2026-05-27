@@ -94,6 +94,11 @@ Invoice period tracking:
    format. To force a specific format regardless of the language, set it
    in *Sales > Configuration > Settings > Subscriptions > Period date
    format* (a Babel pattern such as ``dd/MM/yyyy``).
+-  A subscription will not be invoiced twice for the same period. If a
+   non-cancelled invoice already exists for the period being billed,
+   *Create Invoice* raises an error and the cron skips the subscription,
+   so an interrupted and re-run batch cannot duplicate invoices.
+   Cancelled invoices do not block re-invoicing.
 
 Known issues / Roadmap
 ======================

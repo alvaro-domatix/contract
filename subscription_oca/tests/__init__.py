@@ -2,3 +2,4 @@
 
 from . import test_subscription_oca
 from . import test_subscription_invoice_period
+from . import test_subscription_duplicate_invoices
