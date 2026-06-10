@@ -1,7 +1,7 @@
 # Copyright 2023 Domatix - Carlos Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import Command, api, fields, models
-from odoo.tools.misc import get_lang
+from odoo.tools.misc import format_date, get_lang
 
 
 class SaleSubscriptionLine(models.Model):
@@ -298,15 +298,23 @@ class SaleSubscriptionLine(models.Model):
             "analytic_distribution": self.analytic_distribution,
         }
 
-    def _prepare_account_move_line(self):
+    def _prepare_account_move_line(self, period_start=False, period_end=False):
         self.ensure_one()
         account = (
             self.product_id.property_account_income_id
             or self.product_id.categ_id.property_account_income_categ_id
         )
+        name = self.name
+        if period_start and period_end:
+            lang_code = get_lang(
+                self.env, self.sale_subscription_id.partner_id.lang
+            ).code
+            start_str = format_date(self.env, period_start, lang_code=lang_code)
+            end_str = format_date(self.env, period_end, lang_code=lang_code)
+            name = f"{name} ({start_str} - {end_str})"
         return {
             "product_id": self.product_id.id,
-            "name": self.name,
+            "name": name,
             "quantity": self.product_uom_qty,
             "price_unit": self.price_unit,
             "discount": self.discount,
@@ -315,4 +323,7 @@ class SaleSubscriptionLine(models.Model):
             "product_uom_id": self.product_id.uom_id.id,
             "account_id": account.id,
             "analytic_distribution": self.analytic_distribution,
+            "subscription_id": self.sale_subscription_id.id,
+            "subscription_period_start": period_start or False,
+            "subscription_period_end": period_end or False,
         }
