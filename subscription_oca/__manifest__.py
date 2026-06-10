@@ -23,6 +23,7 @@
         "data/sale_subscription_data.xml",
         "wizard/close_subscription_wizard.xml",
         "security/subscription_security.xml",
+        "wizard/sale_subscription_change_partner_wizard.xml",
         "security/ir.model.access.csv",
     ],
     "installable": True,

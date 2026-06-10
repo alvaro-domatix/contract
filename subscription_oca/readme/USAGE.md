@@ -43,3 +43,13 @@ Recurring revenue (MRR / ARR):
 -   Use the *Active recurring revenue* filter to restrict the figures to
     in-progress subscriptions, which reflects live recurring revenue rather
     than the theoretical value of draft or closed subscriptions.
+To change the customer of one or several subscriptions:
+
+1.  Select the subscriptions in the list (or open one) and use the
+    *Change customer* action.
+2.  Pick the new customer. Optionally reapply the customer's sale
+    pricelist and recompute the fiscal position.
+3.  The change applies to the subscription and to its **future**
+    invoices and orders. Invoices already issued are **not** reassigned,
+    so the fiscal trail of posted documents is preserved. Closed
+    subscriptions cannot be changed.
