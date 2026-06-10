@@ -428,6 +428,18 @@ months or years) and the interval, instead of always assuming months.</li>
 period (<em>Subscription period start</em> / <em>end</em>), and the line
 description shows the period it covers, so a customer reading the
 invoice knows exactly which recurrence is being charged.</li>
+<p>Recurring revenue (MRR / ARR):</p>
+<ul class="simple">
+<li>Each subscription exposes its <em>Monthly recurring revenue</em> (MRR) and
+<em>Annual recurring revenue</em> (ARR). The line subtotals (net of
+discount, excluding taxes) are normalised to a monthly amount
+according to the template recurrence and then <strong>converted to the
+company currency</strong> using the rate at the subscription start date.
+This keeps totals comparable when subscriptions use pricelists in
+different currencies.</li>
+<li>Use the <em>Active recurring revenue</em> filter to restrict the figures to
+in-progress subscriptions, which reflects live recurring revenue
+rather than the theoretical value of draft or closed subscriptions.</li>
 </ul>
 </div>
 <div class="section" id="known-issues-roadmap">
