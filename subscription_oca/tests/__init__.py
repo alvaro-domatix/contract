@@ -5,5 +5,6 @@ from . import test_subscription_change_partner
 from . import test_subscription_cron
 from . import test_subscription_invoice_period
 from . import test_subscription_mrr
+from . import test_subscription_partner_addresses
 from . import test_subscription_recurrence_dates
 from . import test_subscription_security
