@@ -35,6 +35,14 @@ class TestSubscriptionCron(ProductCommon, BaseCommon):
             subscribable=True,
             uom_id=cls.uom_unit.id,
         )
+        # Postpone subscriptions already due in the database (e.g. demo data)
+        # so the cron limit/count assertions only see this class' records.
+        cls.env["sale.subscription"].search(
+            [
+                ("in_progress", "=", True),
+                ("recurring_next_date", "<=", fields.Date.today()),
+            ]
+        ).write({"recurring_next_date": fields.Date.today() + relativedelta(days=365)})
 
     def _make_sub(self, **vals):
         defaults = {
