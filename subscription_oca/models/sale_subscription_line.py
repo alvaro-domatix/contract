@@ -12,6 +12,15 @@ _PERIOD_LENGTH_IN_MONTHS = {
     "years": 12.0,
 }
 
+# Average length of a calendar month: 365.25 days / 12 months.
+_AVG_DAYS_PER_MONTH = 365.25 / 12  # 30.4375
+_PERIOD_LENGTH_IN_MONTHS = {
+    "days": 1 / _AVG_DAYS_PER_MONTH,
+    "weeks": 7 / _AVG_DAYS_PER_MONTH,
+    "months": 1.0,
+    "years": 12.0,
+}
+
 
 class SaleSubscriptionLine(models.Model):
     _name = "sale.subscription.line"

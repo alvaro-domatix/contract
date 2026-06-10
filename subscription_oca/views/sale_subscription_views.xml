@@ -63,20 +63,31 @@
                             invisible="not recurring_monthly"
                         >
                             <div class="o_stat_info">
-                                <field
-                                    name="recurring_monthly"
-                                    widget="monetary"
-                                    options="{'currency_field': 'company_currency_id'}"
-                                    class="o_stat_value"
-                                />
+                                <span class="o_stat_value">
+                                    <field name="company_currency_id" invisible="1" />
+                                    <field
+                                        name="recurring_monthly"
+                                        widget="monetary"
+                                        options="{'currency_field': 'company_currency_id'}"
+                                    />
+                                </span>
                                 <span class="o_stat_text">MRR</span>
-                                <field
-                                    name="recurring_yearly"
-                                    widget="monetary"
-                                    options="{'currency_field': 'company_currency_id'}"
-                                    class="text-muted small"
-                                />
-                                <span class="text-muted small">ARR</span>
+                            </div>
+                        </button>
+                        <button
+                            class="oe_stat_button"
+                            icon="fa-line-chart"
+                            invisible="not recurring_yearly"
+                        >
+                            <div class="o_stat_info">
+                                <span class="o_stat_value">
+                                    <field
+                                        name="recurring_yearly"
+                                        widget="monetary"
+                                        options="{'currency_field': 'company_currency_id'}"
+                                    />
+                                </span>
+                                <span class="o_stat_text">ARR</span>
                             </div>
                         </button>
                     </div>
@@ -94,14 +105,6 @@
                     <group>
                         <group name="left_group">
                             <field name="partner_id" />
-                            <field
-                                name="partner_invoice_id"
-                                groups="account.group_delivery_invoice_address"
-                            />
-                            <field
-                                name="partner_shipping_id"
-                                groups="account.group_delivery_invoice_address"
-                            />
                             <field name="pricelist_id" />
                             <field
                                 name="date_start"
