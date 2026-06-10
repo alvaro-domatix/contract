@@ -26,6 +26,9 @@
         "wizard/sale_subscription_change_partner_wizard.xml",
         "security/ir.model.access.csv",
     ],
+    "demo": [
+        "demo/sale_subscription_demo.xml",
+    ],
     "installable": True,
     "application": True,
 }
