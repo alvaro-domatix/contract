@@ -7,3 +7,4 @@ access_custom_sale_subscription_line,sale.subscription.line,model_sale_subscript
 access_custom_sale_subscription_tag,sale.subscription.tag,model_sale_subscription_tag,sales_team.group_sale_salesman,1,1,1,1
 access_close_subscription,Close subscription access,model_close_reason_wizard,sales_team.group_sale_salesman,1,1,1,1
 access_change_partner_wizard,Change partner wizard access,model_sale_subscription_change_partner_wizard,sales_team.group_sale_manager,1,1,1,1
+access_sale_subscription_report,sale.subscription.report,model_sale_subscription_report,sales_team.group_sale_salesman,1,0,0,0

@@ -71,3 +71,16 @@ Invoice and delivery addresses:
     format. To force a specific format regardless of the language, set
     it in *Sales > Configuration > Settings > Subscriptions > Period
     date format* (a Babel pattern such as `dd/MM/yyyy`).
+
+Reporting:
+
+-   Go to *Subscriptions > Reporting* to analyse your recurring revenue
+    with pivot and graph views:
+    -   *Subscriptions Analysis*: recurring revenue per line, groupable
+        by customer, template, product, salesperson or start month.
+    -   *MRR Breakdown*: monthly recurring revenue of the running
+        subscriptions by template and product.
+    -   *Churn Analysis*: closed subscriptions and the revenue lost,
+        grouped by close reason.
+-   All amounts are expressed in the company currency, so figures remain
+    comparable when subscriptions use pricelists in other currencies.

@@ -8,3 +8,4 @@ from . import test_subscription_mrr
 from . import test_subscription_partner_addresses
 from . import test_subscription_recurrence_dates
 from . import test_subscription_security
+from . import test_subscription_report
