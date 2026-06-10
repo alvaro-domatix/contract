@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Subscription templates -->
+    <record id="demo_subscription_template_monthly" model="sale.subscription.template">
+        <field name="name">Monthly subscription</field>
+        <field name="code">MON</field>
+        <field name="recurring_rule_type">months</field>
+        <field name="recurring_interval">1</field>
+        <field name="recurring_rule_boundary">unlimited</field>
+        <field name="invoicing_mode">draft</field>
+        <field
+            name="description"
+        >Monthly recurring services. Invoices are generated as drafts for review before validation.</field>
+    </record>
+
+    <record id="demo_subscription_template_yearly" model="sale.subscription.template">
+        <field name="name">Yearly maintenance</field>
+        <field name="code">YEAR</field>
+        <field name="recurring_rule_type">years</field>
+        <field name="recurring_interval">1</field>
+        <field name="recurring_rule_boundary">unlimited</field>
+        <field name="invoicing_mode">invoice</field>
+        <field
+            name="description"
+        >Yearly maintenance contract. Invoices are validated automatically on each anniversary.</field>
+    </record>
+
+    <record
+        id="demo_subscription_template_quarterly"
+        model="sale.subscription.template"
+    >
+        <field name="name">Quarterly plan (1 year)</field>
+        <field name="code">QTR</field>
+        <field name="recurring_rule_type">months</field>
+        <field name="recurring_interval">3</field>
+        <field name="recurring_rule_boundary">limited</field>
+        <field name="recurring_rule_count">12</field>
+        <field name="invoicing_mode">draft</field>
+        <field
+            name="description"
+        >Quarterly billing over a fixed one-year term. The subscription closes automatically at the end date.</field>
+    </record>
+
+    <!-- Pricelist (product.list0 no longer exists in Odoo 19) -->
+    <record id="demo_subscription_pricelist" model="product.pricelist">
+        <field name="name">Subscription demo pricelist</field>
+    </record>
+
+    <!-- Tags -->
+    <record id="demo_subscription_tag_b2b" model="sale.subscription.tag">
+        <field name="name">B2B</field>
+    </record>
+    <record id="demo_subscription_tag_b2c" model="sale.subscription.tag">
+        <field name="name">B2C</field>
+    </record>
+    <record id="demo_subscription_tag_premium" model="sale.subscription.tag">
+        <field name="name">Premium</field>
+    </record>
+    <record id="demo_subscription_tag_pilot" model="sale.subscription.tag">
+        <field name="name">Pilot project</field>
+    </record>
+
+    <!-- Subscribable products -->
+    <record id="demo_product_hosting_standard" model="product.product">
+        <field name="name">Cloud Hosting - Standard plan</field>
+        <field name="default_code">SUB-HOST-STD</field>
+        <field name="type">service</field>
+        <field name="categ_id" ref="product.product_category_services" />
+        <field name="sale_ok" eval="True" />
+        <field name="purchase_ok" eval="False" />
+        <field name="list_price">50.0</field>
+        <field name="subscribable" eval="True" />
+        <field
+            name="subscription_template_id"
+            ref="demo_subscription_template_monthly"
+        />
+        <field
+            name="description_sale"
+        >Standard cloud hosting plan: 2 vCPU, 4 GB RAM, daily backups.</field>
+    </record>
+
+    <record id="demo_product_hosting_premium" model="product.product">
+        <field name="name">Cloud Hosting - Premium plan</field>
+        <field name="default_code">SUB-HOST-PRE</field>
+        <field name="type">service</field>
+        <field name="categ_id" ref="product.product_category_services" />
+        <field name="sale_ok" eval="True" />
+        <field name="purchase_ok" eval="False" />
+        <field name="list_price">120.0</field>
+        <field name="subscribable" eval="True" />
+        <field
+            name="subscription_template_id"
+            ref="demo_subscription_template_monthly"
+        />
+        <field
+            name="description_sale"
+        >Premium cloud hosting plan: 8 vCPU, 32 GB RAM, hourly backups and priority support.</field>
+    </record>
+
+    <record id="demo_product_storage_addon" model="product.product">
+        <field name="name">Extra storage add-on (1 TB)</field>
+        <field name="default_code">SUB-STORAGE-1TB</field>
+        <field name="type">service</field>
+        <field name="categ_id" ref="product.product_category_services" />
+        <field name="sale_ok" eval="True" />
+        <field name="purchase_ok" eval="False" />
+        <field name="list_price">12.0</field>
+        <field name="subscribable" eval="True" />
+        <field
+            name="subscription_template_id"
+            ref="demo_subscription_template_monthly"
+        />
+        <field name="description_sale">Additional 1 TB storage block.</field>
+    </record>
+
+    <record id="demo_product_maintenance_plan" model="product.product">
+        <field name="name">Annual equipment maintenance</field>
+        <field name="default_code">SUB-MAINT-YEAR</field>
+        <field name="type">service</field>
+        <field name="categ_id" ref="product.product_category_services" />
+        <field name="sale_ok" eval="True" />
+        <field name="purchase_ok" eval="False" />
+        <field name="list_price">960.0</field>
+        <field name="subscribable" eval="True" />
+        <field
+            name="subscription_template_id"
+            ref="demo_subscription_template_yearly"
+        />
+        <field
+            name="description_sale"
+        >Yearly preventive maintenance visit and parts coverage.</field>
+    </record>
+
+    <record id="demo_product_training_pack" model="product.product">
+        <field name="name">Quarterly online training pack</field>
+        <field name="default_code">SUB-TRAIN-QTR</field>
+        <field name="type">service</field>
+        <field name="categ_id" ref="product.product_category_services" />
+        <field name="sale_ok" eval="True" />
+        <field name="purchase_ok" eval="False" />
+        <field name="list_price">350.0</field>
+        <field name="subscribable" eval="True" />
+        <field
+            name="subscription_template_id"
+            ref="demo_subscription_template_quarterly"
+        />
+        <field
+            name="description_sale"
+        >Quarterly live training sessions for up to 10 attendees.</field>
+    </record>
+
+    <!--
+        Subscription 1: draft, starting today (Deco Addict).
+        sale.subscription.create() always forces the draft stage when both
+        date_start and recurring_next_date are passed, so draft subscriptions
+        only need a single record.
+    -->
+    <record id="demo_subscription_draft" model="sale.subscription">
+        <field name="partner_id" ref="base.res_partner_2" />
+        <field name="template_id" ref="demo_subscription_template_monthly" />
+        <field name="pricelist_id" ref="demo_subscription_pricelist" />
+        <field name="user_id" ref="base.user_admin" />
+        <field name="date_start" eval="DateTime.today().strftime('%Y-%m-%d')" />
+        <field
+            name="recurring_next_date"
+            eval="DateTime.today().strftime('%Y-%m-%d')"
+        />
+        <field
+            name="tag_ids"
+            eval="[Command.set([ref('demo_subscription_tag_b2b'), ref('demo_subscription_tag_pilot')])]"
+        />
+        <field
+            name="description"
+        >New customer evaluating the standard hosting plan.</field>
+    </record>
+    <record id="demo_subscription_draft_line_1" model="sale.subscription.line">
+        <field name="sale_subscription_id" ref="demo_subscription_draft" />
+        <field name="product_id" ref="demo_product_hosting_standard" />
+        <field name="product_uom_qty">1</field>
+    </record>
+    <record id="demo_subscription_draft_line_2" model="sale.subscription.line">
+        <field name="sale_subscription_id" ref="demo_subscription_draft" />
+        <field name="product_id" ref="demo_product_storage_addon" />
+        <field name="product_uom_qty">2</field>
+    </record>
+
+    <!--
+        Subscription 2: in progress and due for invoicing (Azure Interior).
+        Moving a subscription to an "in progress" stage resets date_start and
+        recurring_next_date to today, so the stage is written first and the
+        real dates are restored in a final write: started 3 months ago and
+        recurring_next_date due today, so the daily cron picks it up on its
+        first run.
+    -->
+    <record id="demo_subscription_due" model="sale.subscription">
+        <field name="partner_id" ref="base.res_partner_12" />
+        <field name="template_id" ref="demo_subscription_template_monthly" />
+        <field name="pricelist_id" ref="demo_subscription_pricelist" />
+        <field name="user_id" ref="base.user_admin" />
+        <field name="date_start" eval="DateTime.today().strftime('%Y-%m-%d')" />
+        <field
+            name="recurring_next_date"
+            eval="DateTime.today().strftime('%Y-%m-%d')"
+        />
+        <field
+            name="tag_ids"
+            eval="[Command.set([ref('demo_subscription_tag_b2b'), ref('demo_subscription_tag_premium')])]"
+        />
+        <field
+            name="description"
+        >Premium hosting customer, billed monthly, next period already due.</field>
+    </record>
+    <record id="demo_subscription_due_line_1" model="sale.subscription.line">
+        <field name="sale_subscription_id" ref="demo_subscription_due" />
+        <field name="product_id" ref="demo_product_hosting_premium" />
+        <field name="product_uom_qty">1</field>
+    </record>
+    <record id="demo_subscription_due_line_2" model="sale.subscription.line">
+        <field name="sale_subscription_id" ref="demo_subscription_due" />
+        <field name="product_id" ref="demo_product_storage_addon" />
+        <field name="product_uom_qty">5</field>
+    </record>
+    <function model="sale.subscription" name="write">
+        <value eval="[ref('demo_subscription_due')]" />
+        <value eval="{'stage_id': ref('subscription_stage_in_progress')}" />
+    </function>
+    <function model="sale.subscription" name="write">
+        <value eval="[ref('demo_subscription_due')]" />
+        <value
+            eval="{
+            'date_start': (DateTime.today() + relativedelta(months=-3)).strftime('%Y-%m-%d'),
+            'recurring_next_date': DateTime.today().strftime('%Y-%m-%d'),
+        }"
+        />
+    </function>
+
+    <!--
+        Subscription 3: in progress, next invoice within 10 days (Gemini
+        Furniture).
+    -->
+    <record id="demo_subscription_running" model="sale.subscription">
+        <field name="partner_id" ref="base.res_partner_3" />
+        <field name="template_id" ref="demo_subscription_template_monthly" />
+        <field name="pricelist_id" ref="demo_subscription_pricelist" />
+        <field name="user_id" ref="base.user_admin" />
+        <field name="date_start" eval="DateTime.today().strftime('%Y-%m-%d')" />
+        <field
+            name="recurring_next_date"
+            eval="DateTime.today().strftime('%Y-%m-%d')"
+        />
+        <field
+            name="tag_ids"
+            eval="[Command.set([ref('demo_subscription_tag_b2c')])]"
+        />
+        <field
+            name="description"
+        >Three standard hosting instances billed on a single monthly subscription.</field>
+    </record>
+    <record id="demo_subscription_running_line_1" model="sale.subscription.line">
+        <field name="sale_subscription_id" ref="demo_subscription_running" />
+        <field name="product_id" ref="demo_product_hosting_standard" />
+        <field name="product_uom_qty">3</field>
+    </record>
+    <function model="sale.subscription" name="write">
+        <value eval="[ref('demo_subscription_running')]" />
+        <value eval="{'stage_id': ref('subscription_stage_in_progress')}" />
+    </function>
+    <function model="sale.subscription" name="write">
+        <value eval="[ref('demo_subscription_running')]" />
+        <value
+            eval="{
+            'date_start': (DateTime.today() + relativedelta(days=-20)).strftime('%Y-%m-%d'),
+            'recurring_next_date': (DateTime.today() + relativedelta(days=10)).strftime('%Y-%m-%d'),
+        }"
+        />
+    </function>
+
+    <!--
+        Subscription 4: in progress yearly maintenance close to its renewal
+        (Wood Corner). Started 11 months ago, next invoice in 1 month.
+    -->
+    <record id="demo_subscription_yearly" model="sale.subscription">
+        <field name="partner_id" ref="base.res_partner_1" />
+        <field name="template_id" ref="demo_subscription_template_yearly" />
+        <field name="pricelist_id" ref="demo_subscription_pricelist" />
+        <field name="user_id" ref="base.user_admin" />
+        <field name="date_start" eval="DateTime.today().strftime('%Y-%m-%d')" />
+        <field
+            name="recurring_next_date"
+            eval="DateTime.today().strftime('%Y-%m-%d')"
+        />
+        <field
+            name="tag_ids"
+            eval="[Command.set([ref('demo_subscription_tag_b2b')])]"
+        />
+        <field
+            name="description"
+        >Maintenance contract approaching its first renewal.</field>
+    </record>
+    <record id="demo_subscription_yearly_line_1" model="sale.subscription.line">
+        <field name="sale_subscription_id" ref="demo_subscription_yearly" />
+        <field name="product_id" ref="demo_product_maintenance_plan" />
+        <field name="product_uom_qty">1</field>
+    </record>
+    <function model="sale.subscription" name="write">
+        <value eval="[ref('demo_subscription_yearly')]" />
+        <value eval="{'stage_id': ref('subscription_stage_in_progress')}" />
+    </function>
+    <function model="sale.subscription" name="write">
+        <value eval="[ref('demo_subscription_yearly')]" />
+        <value
+            eval="{
+            'date_start': (DateTime.today() + relativedelta(months=-11)).strftime('%Y-%m-%d'),
+            'recurring_next_date': (DateTime.today() + relativedelta(months=1)).strftime('%Y-%m-%d'),
+        }"
+        />
+    </function>
+
+    <!--
+        Subscription 5: ready to start next week (Ready Mat), on the fixed
+        one-year quarterly plan. The daily cron starts it once date_start is
+        reached.
+    -->
+    <record id="demo_subscription_future" model="sale.subscription">
+        <field name="partner_id" ref="base.res_partner_4" />
+        <field name="template_id" ref="demo_subscription_template_quarterly" />
+        <field name="pricelist_id" ref="demo_subscription_pricelist" />
+        <field name="user_id" ref="base.user_admin" />
+        <field
+            name="date_start"
+            eval="(DateTime.today() + relativedelta(days=7)).strftime('%Y-%m-%d')"
+        />
+        <field
+            name="recurring_next_date"
+            eval="(DateTime.today() + relativedelta(days=7)).strftime('%Y-%m-%d')"
+        />
+        <field
+            name="tag_ids"
+            eval="[Command.set([ref('demo_subscription_tag_pilot')])]"
+        />
+        <field name="description">Training plan starting next week.</field>
+    </record>
+    <record id="demo_subscription_future_line_1" model="sale.subscription.line">
+        <field name="sale_subscription_id" ref="demo_subscription_future" />
+        <field name="product_id" ref="demo_product_training_pack" />
+        <field name="product_uom_qty">1</field>
+    </record>
+    <function model="sale.subscription" name="write">
+        <value eval="[ref('demo_subscription_future')]" />
+        <value eval="{'stage_id': ref('subscription_stage_ready')}" />
+    </function>
+
+    <!--
+        Subscription 6: closed subscription with a close reason (The Jackson
+        Group). Writing the closed stage together with close_reason_id keeps
+        both consistent; recurring_next_date is cleared as close_subscription()
+        does.
+    -->
+    <record id="demo_subscription_closed" model="sale.subscription">
+        <field name="partner_id" ref="base.res_partner_10" />
+        <field name="template_id" ref="demo_subscription_template_monthly" />
+        <field name="pricelist_id" ref="demo_subscription_pricelist" />
+        <field name="user_id" ref="base.user_admin" />
+        <field name="date_start" eval="DateTime.today().strftime('%Y-%m-%d')" />
+        <field
+            name="recurring_next_date"
+            eval="DateTime.today().strftime('%Y-%m-%d')"
+        />
+        <field
+            name="tag_ids"
+            eval="[Command.set([ref('demo_subscription_tag_b2c')])]"
+        />
+        <field name="description">Customer churned after six months.</field>
+    </record>
+    <record id="demo_subscription_closed_line_1" model="sale.subscription.line">
+        <field name="sale_subscription_id" ref="demo_subscription_closed" />
+        <field name="product_id" ref="demo_product_hosting_standard" />
+        <field name="product_uom_qty">1</field>
+    </record>
+    <function model="sale.subscription" name="write">
+        <value eval="[ref('demo_subscription_closed')]" />
+        <value
+            eval="{
+            'stage_id': ref('subscription_stage_closed'),
+            'close_reason_id': ref('close_reason_expensive'),
+        }"
+        />
+    </function>
+    <function model="sale.subscription" name="write">
+        <value eval="[ref('demo_subscription_closed')]" />
+        <value
+            eval="{
+            'date_start': (DateTime.today() + relativedelta(months=-6)).strftime('%Y-%m-%d'),
+            'recurring_next_date': False,
+        }"
+        />
+    </function>
+</odoo>
