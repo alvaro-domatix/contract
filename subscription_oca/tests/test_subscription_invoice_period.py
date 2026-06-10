@@ -80,3 +80,26 @@ class TestSubscriptionInvoicePeriod(ProductCommon, BaseCommon):
         start_str = format_date(self.env, date(2026, 1, 1), lang_code=lang_code)
         end_str = format_date(self.env, date(2026, 1, 31), lang_code=lang_code)
         self.assertIn(f"({start_str} - {end_str})", line.name)
+
+    def test_invoice_line_description_custom_date_format(self):
+        # The babel pattern from the config setting overrides the
+        # customer-language format on the line description.
+        self.env["ir.config_parameter"].sudo().set_param(
+            "subscription_oca.period_date_format", "dd/MM/yyyy"
+        )
+        self.subscription.recurring_next_date = date(2026, 1, 1)
+        invoice = self.subscription.create_invoice()
+        line = invoice.invoice_line_ids[:1]
+        self.assertIn("(01/01/2026 - 31/01/2026)", line.name)
+
+    def test_config_setting_stores_period_date_format(self):
+        settings = self.env["res.config.settings"].create(
+            {"subscription_period_date_format": "dd/MM/yyyy"}
+        )
+        settings.execute()
+        self.assertEqual(
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("subscription_oca.period_date_format"),
+            "dd/MM/yyyy",
+        )

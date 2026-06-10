@@ -12,24 +12,6 @@ _PERIOD_LENGTH_IN_MONTHS = {
     "years": 12.0,
 }
 
-# Average length of a calendar month: 365.25 days / 12 months.
-_AVG_DAYS_PER_MONTH = 365.25 / 12  # 30.4375
-_PERIOD_LENGTH_IN_MONTHS = {
-    "days": 1 / _AVG_DAYS_PER_MONTH,
-    "weeks": 7 / _AVG_DAYS_PER_MONTH,
-    "months": 1.0,
-    "years": 12.0,
-}
-
-# Average length of a calendar month: 365.25 days / 12 months.
-_AVG_DAYS_PER_MONTH = 365.25 / 12  # 30.4375
-_PERIOD_LENGTH_IN_MONTHS = {
-    "days": 1 / _AVG_DAYS_PER_MONTH,
-    "weeks": 7 / _AVG_DAYS_PER_MONTH,
-    "months": 1.0,
-    "years": 12.0,
-}
-
 
 class SaleSubscriptionLine(models.Model):
     _name = "sale.subscription.line"
@@ -386,8 +368,17 @@ class SaleSubscriptionLine(models.Model):
             lang_code = get_lang(
                 self.env, self.sale_subscription_id.partner_id.lang
             ).code
-            start_str = format_date(self.env, period_start, lang_code=lang_code)
-            end_str = format_date(self.env, period_end, lang_code=lang_code)
+            date_format = (
+                self.env["ir.config_parameter"]
+                .sudo()
+                .get_param("subscription_oca.period_date_format")
+            )
+            start_str = format_date(
+                self.env, period_start, lang_code=lang_code, date_format=date_format
+            )
+            end_str = format_date(
+                self.env, period_end, lang_code=lang_code, date_format=date_format
+            )
             name = f"{name} ({start_str} - {end_str})"
         return {
             "product_id": self.product_id.id,
