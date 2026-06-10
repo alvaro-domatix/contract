@@ -185,3 +185,13 @@ class TestSubscriptionRecurrenceDates(ProductCommon, BaseCommon):
         subscription = self.env["sale.subscription"].new({})
         self.assertFalse(subscription.date)
         self.assertTrue(subscription.recurring_rule_boundary)
+
+    def test_set_next_invoice_date_without_previous_date(self):
+        # Manual invoicing of a subscription whose recurring_next_date is
+        # empty (e.g. it was closed) must fall back to the first invoice
+        # date instead of crashing.
+        template = self._make_template("months")
+        sub = self._make_subscription(template, date_start=date(2026, 1, 1))
+        sub.recurring_next_date = False
+        sub._set_next_invoice_date_after_invoice()
+        self.assertEqual(sub.recurring_next_date, date(2026, 2, 1))

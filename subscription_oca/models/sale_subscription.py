@@ -400,7 +400,12 @@ class SaleSubscription(models.Model):
 
     def _set_next_invoice_date_after_invoice(self, invoice_date=None):
         self.ensure_one()
-        previous_date = invoice_date or self.recurring_next_date
+        # A subscription without a scheduled next date (e.g. closed, or not
+        # started yet) can still be invoiced manually: advance from its first
+        # invoice date instead of crashing on a False date.
+        previous_date = (
+            invoice_date or self.recurring_next_date or self._get_first_invoice_date()
+        )
         self.recurring_next_date = self._get_next_invoice_date(previous_date)
 
     def _get_contract_end_date(self):
