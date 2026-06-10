@@ -178,3 +178,10 @@ class TestSubscriptionRecurrenceDates(ProductCommon, BaseCommon):
         sub.generate_invoice()
         self.assertTrue(sub.invoice_ids, "generate_invoice should create a draft move")
         self.assertEqual(sub.recurring_next_date, date(2026, 2, 1))
+
+    def test_rule_boundary_without_template(self):
+        # A new record in the form view computes the boundary before any
+        # template is selected: it must not crash and must have no end date.
+        subscription = self.env["sale.subscription"].new({})
+        self.assertFalse(subscription.date)
+        self.assertTrue(subscription.recurring_rule_boundary)

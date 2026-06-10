@@ -353,7 +353,12 @@ class SaleSubscription(models.Model):
     @api.depends("template_id", "date_start")
     def _compute_rule_boundary(self):
         for record in self:
-            if record.template_id.recurring_rule_boundary == "unlimited":
+            # No template yet (e.g. a new record in the form view) or an
+            # unlimited one: there is no end date to compute.
+            if (
+                not record.template_id
+                or record.template_id.recurring_rule_boundary == "unlimited"
+            ):
                 record.date = False
                 record.recurring_rule_boundary = True
             else:
