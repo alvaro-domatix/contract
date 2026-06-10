@@ -220,3 +220,14 @@ class TestSubscriptionMRR(ProductCommon, BaseCommon):
         self.assertEqual(sub.company_currency_id, company_currency)
         # 200 foreign / month -> 100 company / month
         self.assertAlmostEqual(sub.recurring_monthly, 100.0, 2)
+
+    def test_action_view_recurring_revenue(self):
+        tmpl = self._create_template("months", 1)
+        subscription = self._create_subscription(tmpl)
+        action = subscription.action_view_recurring_revenue()
+        self.assertEqual(action["res_model"], "sale.subscription.line")
+        self.assertEqual(
+            action["domain"], [("sale_subscription_id", "=", subscription.id)]
+        )
+        lines = self.env["sale.subscription.line"].search(action["domain"])
+        self.assertEqual(lines, subscription.sale_subscription_line_ids)

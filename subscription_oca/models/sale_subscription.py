@@ -392,6 +392,25 @@ class SaleSubscription(models.Model):
         )
         self.stage_id = in_progress_stage
 
+    def action_view_recurring_revenue(self):
+        self.ensure_one()
+        return {
+            "name": self.env._("Recurring revenue"),
+            "type": "ir.actions.act_window",
+            "res_model": "sale.subscription.line",
+            "view_mode": "list",
+            "views": [
+                (
+                    self.env.ref(
+                        "subscription_oca.sale_subscription_line_recurring_revenue_list"
+                    ).id,
+                    "list",
+                )
+            ],
+            "domain": [("sale_subscription_id", "=", self.id)],
+            "context": {"create": False, "edit": False, "delete": False},
+        }
+
     def action_close_subscription(self):
         return {
             "view_type": "form",

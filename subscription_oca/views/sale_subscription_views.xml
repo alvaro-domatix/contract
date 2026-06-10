@@ -58,6 +58,8 @@
                             />
                         </button>
                         <button
+                            name="action_view_recurring_revenue"
+                            type="object"
                             class="oe_stat_button"
                             icon="fa-line-chart"
                             invisible="not recurring_monthly"
@@ -75,6 +77,8 @@
                             </div>
                         </button>
                         <button
+                            name="action_view_recurring_revenue"
+                            type="object"
                             class="oe_stat_button"
                             icon="fa-line-chart"
                             invisible="not recurring_yearly"
@@ -232,6 +236,24 @@
 
                 <chatter />
             </form>
+        </field>
+    </record>
+
+    <record id="sale_subscription_line_recurring_revenue_list" model="ir.ui.view">
+        <field name="name">sale.subscription.line.recurring.revenue.list</field>
+        <field name="model">sale.subscription.line</field>
+        <field name="arch" type="xml">
+            <list create="false" edit="false" delete="false">
+                <field name="currency_id" column_invisible="True" />
+                <field name="company_currency_id" column_invisible="True" />
+                <field name="product_id" />
+                <field name="name" optional="hide" />
+                <field name="product_uom_qty" />
+                <field name="price_unit" optional="show" />
+                <field name="discount" optional="hide" />
+                <field name="price_subtotal" sum="Total subtotal" />
+                <field name="recurring_monthly" sum="Total MRR" />
+            </list>
         </field>
     </record>
 
