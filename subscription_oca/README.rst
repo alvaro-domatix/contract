@@ -36,6 +36,9 @@ This module allows creating subscriptions that generate recurring
 invoices or orders. It also enables the sale of products that generate
 subscriptions.
 
+Subscriptions can be renewed into a linked child subscription, keeping
+the genealogy between the original contract and its renewals.
+
 **Table of contents**
 
 .. contents::
@@ -141,7 +144,20 @@ Reporting:
       grouped by close reason.
 
 -  All amounts are expressed in the company currency, so figures remain
-   comparable when subscriptions use pricelists in other currencies.
+   comparable when subscriptions use pricelists in other currencies. To
+   renew a subscription:
+
+1. On an in-progress subscription, press *Renew*. A renewal quote is
+   created as a child subscription in the *pre* stage, copying the
+   template, lines, pricelist, fiscal position, partner and journal. Its
+   start date is the finish date of the current subscription (or its
+   next invoice date when there is no finish date).
+2. The *Renew* button is hidden while a renewal quote is still open.
+3. When the renewal is started, the original subscription is closed
+   automatically and a link to the renewal is posted on its chatter.
+4. Use the *Parent contract* and *Renewals* smart buttons to navigate
+   the renewal chain; *origin_subscription_id* always points at the
+   first contract of the chain.
 
 Known issues / Roadmap
 ======================
