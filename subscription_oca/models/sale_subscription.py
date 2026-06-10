@@ -205,17 +205,34 @@ class SaleSubscription(models.Model):
         help="True when this subscription has at least one child that is "
         "not closed yet — its renewal is active or pending.",
     )
+    is_paused = fields.Boolean(
+        string="Paused",
+        tracking=True,
+        index="btree_not_null",
+        copy=False,
+        help="When ticked, the recurring cron will skip this subscription "
+        "until it is resumed manually or until `paused_until` is reached.",
+    )
+    paused_until = fields.Date(
+        string="Resume on",
+        tracking=True,
+        copy=False,
+        help="If set, the cron will automatically resume this subscription "
+        "on or after this date.",
+    )
 
     @api.model
     def cron_subscription_management(self, limit=None):
-        """Run the three subscription lifecycle phases in order: start due
-        subscriptions, invoice due ones, then close ended ones.
+        """Run the subscription lifecycle phases in order: resume paused
+        subscriptions whose resume date is reached, start due subscriptions,
+        invoice due ones, then close ended ones.
 
         ``limit`` caps the number of records processed **per phase**, not for
-        the whole run, so a value of N may process up to 3*N records. It is
+        the whole run, so a value of N may process up to 4*N records. It is
         meant to bound a single batch on large databases; leave it as ``None``
         to process every due record.
         """
+        self._cron_resume_due_subscriptions(limit=limit)
         self._cron_start_due_subscriptions(limit=limit)
         self._cron_invoice_due_subscriptions(limit=limit)
         self._cron_close_ended_subscriptions(limit=limit)
@@ -228,6 +245,7 @@ class SaleSubscription(models.Model):
         today = date.today()
         domain = [
             ("in_progress", "=", False),
+            ("is_paused", "=", False),
             ("date_start", "<=", today),
             ("stage_id.type", "=", "pre"),
         ]
@@ -248,6 +266,7 @@ class SaleSubscription(models.Model):
         today = date.today()
         domain = [
             ("in_progress", "=", True),
+            ("is_paused", "=", False),
             ("recurring_next_date", "<=", today),
             ("sale_subscription_line_ids", "!=", False),
         ]
@@ -271,6 +290,7 @@ class SaleSubscription(models.Model):
         today = date.today()
         domain = [
             ("in_progress", "=", True),
+            ("is_paused", "=", False),
             ("recurring_rule_boundary", "=", False),
             ("date", "!=", False),
             ("date", "<=", today),
@@ -281,6 +301,24 @@ class SaleSubscription(models.Model):
                 subscription.with_company(subscription.company_id).close_subscription()
             except Exception:
                 logger.exception("Error closing subscription %s", subscription.id)
+
+    @api.model
+    def _cron_resume_due_subscriptions(self, limit=None):
+        today = fields.Date.context_today(self)
+        domain = [
+            ("is_paused", "=", True),
+            ("paused_until", "!=", False),
+            ("paused_until", "<=", today),
+        ]
+        for subscription in self.search(domain, limit=limit):
+            try:
+                subscription.with_company(subscription.company_id).action_resume(
+                    automatic=True
+                )
+            except Exception:
+                logger.exception(
+                    "Error resuming paused subscription %s", subscription.id
+                )
 
     @api.depends("sale_subscription_line_ids")
     def _compute_total(self):
@@ -565,6 +603,40 @@ class SaleSubscription(models.Model):
             "domain": [("sale_subscription_id", "=", self.id)],
             "context": {"create": False, "edit": False, "delete": False},
         }
+
+    def action_open_pause_wizard(self):
+        self.ensure_one()
+        return {
+            "type": "ir.actions.act_window",
+            "name": self.env._("Pause subscription"),
+            "res_model": "sale.subscription.pause.wizard",
+            "view_mode": "form",
+            "target": "new",
+        }
+
+    def action_pause(self, paused_until=None):
+        self.ensure_one()
+        if self.stage_id.type == "post":
+            raise UserError(self.env._("Cannot pause a closed subscription."))
+        if self.is_paused:
+            raise UserError(self.env._("This subscription is already paused."))
+        self.write({"is_paused": True, "paused_until": paused_until or False})
+        if paused_until:
+            body = self.env._("Subscription paused until %(date)s.", date=paused_until)
+        else:
+            body = self.env._("Subscription paused.")
+        self.message_post(body=body)
+
+    def action_resume(self, automatic=False):
+        self.ensure_one()
+        if not self.is_paused:
+            raise UserError(self.env._("This subscription is not paused."))
+        self.write({"is_paused": False, "paused_until": False})
+        if automatic:
+            body = self.env._("Subscription resumed automatically.")
+        else:
+            body = self.env._("Subscription resumed.")
+        self.message_post(body=body)
 
     def action_close_subscription(self):
         return {

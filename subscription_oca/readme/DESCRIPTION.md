@@ -4,3 +4,6 @@ subscriptions.
 
 Subscriptions can be renewed into a linked child subscription, keeping
 the genealogy between the original contract and its renewals.
+Subscriptions can be paused and resumed, so they can be put on hold
+without being closed; the recurring cron skips paused subscriptions and
+can resume them automatically on a configured date.

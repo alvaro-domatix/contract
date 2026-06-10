@@ -25,6 +25,7 @@
         "wizard/close_subscription_wizard.xml",
         "security/subscription_security.xml",
         "wizard/sale_subscription_change_partner_wizard.xml",
+        "wizard/pause_subscription_wizard.xml",
         "security/ir.model.access.csv",
         "security/sale_subscription_report_security.xml",
         "report/sale_subscription_report_views.xml",

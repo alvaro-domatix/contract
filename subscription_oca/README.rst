@@ -38,6 +38,9 @@ subscriptions.
 
 Subscriptions can be renewed into a linked child subscription, keeping
 the genealogy between the original contract and its renewals.
+Subscriptions can be paused and resumed, so they can be put on hold
+without being closed; the recurring cron skips paused subscriptions and
+can resume them automatically on a configured date.
 
 **Table of contents**
 
@@ -152,12 +155,25 @@ Reporting:
    template, lines, pricelist, fiscal position, partner and journal. Its
    start date is the finish date of the current subscription (or its
    next invoice date when there is no finish date).
+
 2. The *Renew* button is hidden while a renewal quote is still open.
+
 3. When the renewal is started, the original subscription is closed
    automatically and a link to the renewal is posted on its chatter.
+
 4. Use the *Parent contract* and *Renewals* smart buttons to navigate
    the renewal chain; *origin_subscription_id* always points at the
-   first contract of the chain.
+   first contract of the chain. To pause and resume a subscription:
+
+5. On an in-progress subscription, press *Pause*. A dialog lets you
+   optionally set a *Resume on* date.
+
+6. While paused, the cron skips the subscription: it is not invoiced,
+   started or closed.
+
+7. Press *Resume* to reactivate it manually. If a *Resume on* date was
+   set, the cron resumes the subscription automatically once that date
+   is reached. Leaving the date empty pauses it indefinitely.
 
 Known issues / Roadmap
 ======================

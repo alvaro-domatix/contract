@@ -97,3 +97,12 @@ To renew a subscription:
 4.  Use the *Parent contract* and *Renewals* smart buttons to navigate
     the renewal chain; *origin_subscription_id* always points at the
     first contract of the chain.
+To pause and resume a subscription:
+
+1.  On an in-progress subscription, press *Pause*. A dialog lets you
+    optionally set a *Resume on* date.
+2.  While paused, the cron skips the subscription: it is not invoiced,
+    started or closed.
+3.  Press *Resume* to reactivate it manually. If a *Resume on* date was
+    set, the cron resumes the subscription automatically once that date
+    is reached. Leaving the date empty pauses it indefinitely.

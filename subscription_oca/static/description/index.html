@@ -379,7 +379,10 @@ ul.auto-toc {
 invoices or orders. It also enables the sale of products that generate
 subscriptions.</p>
 <p>Subscriptions can be renewed into a linked child subscription, keeping
-the genealogy between the original contract and its renewals.</p>
+the genealogy between the original contract and its renewals.
+Subscriptions can be paused and resumed, so they can be put on hold
+without being closed; the recurring cron skips paused subscriptions and
+can resume them automatically on a configured date.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -507,7 +510,14 @@ next invoice date when there is no finish date).</li>
 automatically and a link to the renewal is posted on its chatter.</li>
 <li>Use the <em>Parent contract</em> and <em>Renewals</em> smart buttons to navigate
 the renewal chain; <em>origin_subscription_id</em> always points at the
-first contract of the chain.</li>
+first contract of the chain. To pause and resume a subscription:</li>
+<li>On an in-progress subscription, press <em>Pause</em>. A dialog lets you
+optionally set a <em>Resume on</em> date.</li>
+<li>While paused, the cron skips the subscription: it is not invoiced,
+started or closed.</li>
+<li>Press <em>Resume</em> to reactivate it manually. If a <em>Resume on</em> date was
+set, the cron resumes the subscription automatically once that date
+is reached. Leaving the date empty pauses it indefinitely.</li>
 </ol>
 </div>
 <div class="section" id="known-issues-roadmap">
