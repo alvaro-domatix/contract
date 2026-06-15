@@ -482,6 +482,11 @@ consecutive invoices never bill the same day twice.</li>
 format. To force a specific format regardless of the language, set it
 in <em>Sales &gt; Configuration &gt; Settings &gt; Subscriptions &gt; Period date
 format</em> (a Babel pattern such as <tt class="docutils literal">dd/MM/yyyy</tt>).</li>
+<li>A subscription will not be invoiced twice for the same period. If a
+non-cancelled invoice already exists for the period being billed,
+<em>Create Invoice</em> raises an error and the cron skips the subscription,
+so an interrupted and re-run batch cannot duplicate invoices.
+Cancelled invoices do not block re-invoicing.</li>
 </ul>
 <p>Reporting:</p>
 <ul class="simple">

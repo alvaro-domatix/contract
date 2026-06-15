@@ -11,3 +11,4 @@ from . import test_subscription_security
 from . import test_subscription_report
 from . import test_subscription_renewal
 from . import test_subscription_pause
+from . import test_subscription_duplicate_invoices
