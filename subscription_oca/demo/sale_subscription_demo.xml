@@ -7,7 +7,7 @@
         <field name="recurring_rule_type">months</field>
         <field name="recurring_interval">1</field>
         <field name="recurring_rule_boundary">unlimited</field>
-        <field name="invoicing_mode">draft</field>
+        <field name="invoice_state">draft</field>
         <field
             name="description"
         >Monthly recurring services. Invoices are generated as drafts for review before validation.</field>
@@ -19,7 +19,7 @@
         <field name="recurring_rule_type">years</field>
         <field name="recurring_interval">1</field>
         <field name="recurring_rule_boundary">unlimited</field>
-        <field name="invoicing_mode">invoice</field>
+        <field name="invoice_state">posted</field>
         <field
             name="description"
         >Yearly maintenance contract. Invoices are validated automatically on each anniversary.</field>
@@ -35,7 +35,7 @@
         <field name="recurring_interval">3</field>
         <field name="recurring_rule_boundary">limited</field>
         <field name="recurring_rule_count">12</field>
-        <field name="invoicing_mode">draft</field>
+        <field name="invoice_state">draft</field>
         <field
             name="description"
         >Quarterly billing over a fixed one-year term. The subscription closes automatically at the end date.</field>

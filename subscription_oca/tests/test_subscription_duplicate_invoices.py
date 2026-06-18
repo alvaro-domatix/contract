@@ -22,7 +22,7 @@ class TestSubscriptionDuplicateInvoices(ProductCommon, BaseCommon):
                 "code": "DUP-MTH",
                 "recurring_rule_type": "months",
                 "recurring_rule_boundary": "unlimited",
-                "invoicing_mode": "draft",
+                "invoice_state": "draft",
             }
         )
         cls.product = cls._create_product(

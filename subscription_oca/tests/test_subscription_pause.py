@@ -35,7 +35,7 @@ class TestSubscriptionPause(ProductCommon, BaseCommon):
                 "code": "PAU",
                 "recurring_rule_type": "months",
                 "recurring_interval": 1,
-                "invoicing_mode": "draft",
+                "invoice_state": "draft",
             }
         )
 

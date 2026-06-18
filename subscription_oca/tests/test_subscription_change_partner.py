@@ -183,7 +183,7 @@ class TestSubscriptionChangePartnerInvoicing(AccountTestInvoicingCommon):
                 "code": "CCI",
                 "recurring_rule_type": "months",
                 "recurring_interval": 1,
-                "invoicing_mode": "draft",
+                "invoice_state": "draft",
             }
         )
         cls.stage = cls.env["sale.subscription.stage"].search(
