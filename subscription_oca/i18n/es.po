@@ -4,71 +4,60 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-29 17:39+0000\n"
-"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
-"Language-Team: none\n"
-"Language: es\n"
+"POT-Creation-Date: 2026-06-18 19:22+0000\n"
+"PO-Revision-Date: 2026-06-18 19:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"Plural-Forms: \n"
+
+#. module: subscription_oca
+#: model:sale.subscription.stage,description:subscription_oca.subscription_stage_ready
+msgid ""
+"\n"
+"                A subscription is ready to start when is not marked as in progress but it can be at any moment. If there's no 'Closed'-type stage defined, when a subscription comes to an end by automatic means, it will be marked with this stage.\n"
+"            "
+msgstr ""
+"\n"
+"                Una suscripción está lista para comenzar cuando no está marcada como en curso, pero puede estarlo en cualquier momento. Si no hay definida ninguna etapa de tipo 'Cerrada', cuando una suscripción llegue a su fin por medios automáticos, se marcará con esta etapa.\n"
+"            "
 
 #. module: subscription_oca
 #: model:sale.subscription.stage,description:subscription_oca.subscription_stage_in_progress
 msgid ""
 "\n"
-"        As an 'In progress'-type of stage, it will trigger the recurring "
-"invoicing process if applicable. If this stage is the first - sequence order "
-"- of the available 'In progress' types and there's a stage change from any "
-"other non-'In progress' types to this one, an invoice will be created "
-"automatically if the start date is the present day.\n"
-"      "
+"                As an 'In progress'-type of stage, it will trigger the recurring invoicing process if applicable. If this stage is the first - sequence order - of the available 'In progress' types and there's a stage change from any other non-'In progress' types to this one, an invoice will be created automatically if the start date is the present day.\n"
+"            "
 msgstr ""
 "\n"
-"        Como etapa de tipo \"En curso\", activará el proceso de facturación "
-"periódica si procede. Si esta etapa es la primera -en orden secuencial- de "
-"los tipos \"En curso\" disponibles y se produce un cambio de etapa de "
-"cualquier otro tipo que no sea \"En curso\" a éste, se creará "
-"automáticamente una factura si la fecha de inicio es el día actual.\n"
-"      "
+"                Como etapa de tipo 'En curso', activará el proceso de facturación periódica si procede. Si esta etapa es la primera -en orden de secuencia- de los tipos 'En curso' disponibles y se produce un cambio de etapa desde cualquier otro tipo distinto de 'En curso' a esta, se creará automáticamente una factura si la fecha de inicio es el día actual.\n"
+"            "
 
 #. module: subscription_oca
 #: model:sale.subscription.stage,description:subscription_oca.subscription_stage_draft
 msgid ""
 "\n"
-"        Draft equivalent, a subscription is ready to start when is not "
-"marked as in progress but it can be at any moment. If there's no 'Closed'-"
-"type stage defined, when a subscription comes to an end by automatic means, "
-"it will be marked with this stage.\n"
-"      "
+"                Draft, still working on the specifics.\n"
+"            "
 msgstr ""
 "\n"
-"        Equivalente a borrador, una suscripción está lista para comenzar "
-"cuando no está marcada como en curso pero puede estarlo en cualquier "
-"momento. Si no hay definida ninguna etapa de tipo 'Cerrada', cuando una "
-"suscripción llegue a su fin por medios automáticos, se marcará con esta "
-"etapa.\n"
-"      "
+"                Borrador, todavía trabajando en los detalles.\n"
+"            "
 
 #. module: subscription_oca
 #: model:sale.subscription.stage,description:subscription_oca.subscription_stage_closed
 msgid ""
 "\n"
-"        The final stage of a subscription. There are two ways to mark a "
-"subscription as closed. The easiest one is using the kanban card-moving "
-"capabilities, pressing the 'Close subscription' button (only available if a "
-"subscription is in progress).\n"
-"      "
+"                The final stage of a subscription. There are two ways to mark a subscription as closed. The easiest one is using the kanban card-moving capabilities, pressing the 'Close subscription' button (only available if a subscription is in progress).\n"
+"            "
 msgstr ""
 "\n"
-"        La etapa final de una suscripción. Hay dos formas de marcar una "
-"suscripción como cerrada. La más sencilla es utilizar las funciones de "
-"movimiento de tarjetas Kanban, pulsando el botón \"Cerrar "
-"suscripción\" (sólo disponible si una suscripción está en curso).\n"
-"      "
+"                La etapa final de una suscripción. Hay dos formas de marcar una suscripción como cerrada. La más sencilla es usar las funciones de movimiento de tarjetas Kanban, pulsando el botón 'Cerrar suscripción' (solo disponible si una suscripción está en curso).\n"
+"            "
 
 #. module: subscription_oca
 #: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_template_form
@@ -81,9 +70,33 @@ msgid "<span class=\"mr-1\">For</span>"
 msgstr "<span class=\"mr-1\">Para</span>"
 
 #. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
+msgid "<span class=\"o_stat_text\">ARR</span>"
+msgstr "<span class=\"o_stat_text\">ARR</span>"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
+msgid "<span class=\"o_stat_text\">MRR</span>"
+msgstr "<span class=\"o_stat_text\">MRR</span>"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
+msgid ""
+"<span class=\"o_stat_text\">Parent</span>\n"
+"                                <span class=\"o_stat_text\">contract</span>"
+msgstr ""
+"<span class=\"o_stat_text\">Contrato</span>\n"
+"                                <span class=\"o_stat_text\">padre</span>"
+
+#. module: subscription_oca
 #: model_terms:ir.ui.view,arch_db:subscription_oca.res_partner_view_form
 msgid "<span class=\"o_stat_text\">Subscriptions</span>"
 msgstr "<span class=\"o_stat_text\">Suscripciones</span>"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
+msgid "<span>This subscription is paused.</span>"
+msgstr "<span>Esta suscripción está pausada.</span>"
 
 #. module: subscription_oca
 #: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
@@ -91,8 +104,8 @@ msgid ""
 "A given subscription can be marked as closed when, for example, renewal is "
 "not desired."
 msgstr ""
-"Una suscripción determinada puede marcarse como cerrada cuando, por ejemplo, "
-"no se desea renovarla."
+"Una suscripción determinada puede marcarse como cerrada cuando, por ejemplo,"
+" no se desea renovarla."
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__message_needaction
@@ -103,6 +116,16 @@ msgstr "Necesita Acción"
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__active
 msgid "Active"
 msgstr "Activo"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.view_sale_order_pending_filter
+msgid "Active and not paused"
+msgstr "Activas y no pausadas"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.view_sale_order_pending_filter
+msgid "Active recurring revenue"
+msgstr "Ingresos recurrentes activos"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__activity_ids
@@ -130,6 +153,25 @@ msgid "Add new description..."
 msgstr "Añadir nueva descripción..."
 
 #. module: subscription_oca
+#: model:product.template,description_sale:subscription_oca.demo_product_storage_addon_product_template
+msgid "Additional 1 TB storage block."
+msgstr "Bloque adicional de almacenamiento de 1 TB."
+
+#. module: subscription_oca
+#: model:ir.model.fields,help:subscription_oca.field_sale_subscription__partner_invoice_id
+msgid ""
+"Address the recurring invoices are addressed to. Defaults to the customer's "
+"invoice address."
+msgstr ""
+"Dirección a la que se envían las facturas recurrentes. Por defecto, la "
+"dirección de facturación del cliente."
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_change_partner_wizard_view
+msgid "Affected subscriptions"
+msgstr "Suscripciones afectadas"
+
+#. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__amount_tax
 msgid "Amount Tax"
 msgstr "Importe del Impuesto"
@@ -140,9 +182,57 @@ msgid "Amount Total"
 msgstr "Importe Total"
 
 #. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_subscription.py:0
+msgid "An invoice already exists for the period %(start)s - %(end)s."
+msgstr "Ya existe una factura para el periodo %(start)s - %(end)s."
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__analytic_distribution
+msgid "Analytic Distribution"
+msgstr "Distribución analítica"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__analytic_precision
+msgid "Analytic Precision"
+msgstr "Precisión analítica"
+
+#. module: subscription_oca
+#: model:product.template,name:subscription_oca.demo_product_maintenance_plan_product_template
+msgid "Annual equipment maintenance"
+msgstr "Mantenimiento anual de equipos"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__recurring_yearly
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__recurring_yearly
+msgid "Annual recurring revenue"
+msgstr "Ingresos recurrentes anuales"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_change_partner_wizard_view
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_change_partner_wizard__update_pricelist
+msgid "Apply customer pricelist"
+msgstr "Aplicar tarifa del cliente"
+
+#. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__message_attachment_count
 msgid "Attachment Count"
 msgstr "Recuento de Archivos Adjuntos"
+
+#. module: subscription_oca
+#: model:ir.model.fields,help:subscription_oca.field_res_config_settings__subscription_period_date_format
+msgid ""
+"Babel date format used to display the billed period on the invoice line "
+"description, e.g. dd/MM/yyyy. Leave empty to format the dates according to "
+"the customer language."
+msgstr ""
+"Formato de fecha Babel usado para mostrar el periodo facturado en la "
+"descripción de la línea de factura, p. ej. dd/MM/yyyy. Déjelo vacío para "
+"formatear las fechas según el idioma del cliente."
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__recurring_rule_boundary
@@ -150,9 +240,65 @@ msgid "Boundary"
 msgstr "Límite"
 
 #. module: subscription_oca
+#: model_terms:ir.actions.act_window,help:subscription_oca.sale_subscription_report_mrr_action
+msgid ""
+"Breakdown of the monthly recurring revenue of the running\n"
+"                subscriptions by template and product."
+msgstr ""
+"Desglose de los ingresos recurrentes mensuales de las\n"
+"                suscripciones en curso por plantilla y producto."
+
+#. module: subscription_oca
 #: model_terms:ir.ui.view,arch_db:subscription_oca.close_reason_wizard_view
+#: model_terms:ir.ui.view,arch_db:subscription_oca.pause_subscription_wizard_view
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_change_partner_wizard_view
 msgid "Cancel"
 msgstr "Cancelar"
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/wizard/sale_subscription_change_partner_wizard.py:0
+msgid "Cannot change the customer of a closed subscription (%(name)s)."
+msgstr "No se puede cambiar el cliente de una suscripción cerrada (%(name)s)."
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_subscription.py:0
+msgid "Cannot pause a closed subscription."
+msgstr "No se puede pausar una suscripción cerrada."
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_subscription.py:0
+msgid ""
+"Cannot prepare a renewal: there is no subscription stage of type 'pre' "
+"configured."
+msgstr ""
+"No se puede preparar una renovación: no hay configurada ninguna etapa de "
+"suscripción de tipo 'pre'."
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_subscription.py:0
+msgid "Cannot renew a closed subscription."
+msgstr "No se puede renovar una suscripción cerrada."
+
+#. module: subscription_oca
+#: model:ir.actions.act_window,name:subscription_oca.sale_subscription_change_partner_wizard_act_window
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_change_partner_wizard_view
+msgid "Change customer"
+msgstr "Cambiar cliente"
+
+#. module: subscription_oca
+#: model:ir.model,name:subscription_oca.model_sale_subscription_change_partner_wizard
+msgid "Change customer wizard for subscriptions"
+msgstr "Asistente de cambio de cliente para suscripciones"
+
+#. module: subscription_oca
+#: model:ir.actions.act_window,name:subscription_oca.sale_subscription_report_churn_action
+#: model:ir.ui.menu,name:subscription_oca.sale_subscription_report_churn_menu
+msgid "Churn Analysis"
+msgstr "Análisis de bajas"
 
 #. module: subscription_oca
 #: model_terms:ir.actions.act_window,help:subscription_oca.subscription_stage_action
@@ -161,6 +307,8 @@ msgstr "Haga clic para crear una nueva etapa de suscripción."
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__close_reason_id
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__close_reason_id
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
 msgid "Close Reason"
 msgstr "Razón de Cierre"
 
@@ -192,10 +340,31 @@ msgid "Close subscription"
 msgstr "Cerrar suscripción"
 
 #. module: subscription_oca
+#: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_report__stage_type__post
 #: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_stage__type__post
 #: model:sale.subscription.stage,name:subscription_oca.subscription_stage_closed
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
 msgid "Closed"
 msgstr "Cerrado"
+
+#. module: subscription_oca
+#: model_terms:ir.actions.act_window,help:subscription_oca.sale_subscription_report_churn_action
+msgid ""
+"Closed subscriptions and the recurring revenue lost, grouped\n"
+"                by close reason."
+msgstr ""
+"Suscripciones cerradas e ingresos recurrentes perdidos, agrupados\n"
+"                por motivo de cierre."
+
+#. module: subscription_oca
+#: model:product.template,name:subscription_oca.demo_product_hosting_premium_product_template
+msgid "Cloud Hosting - Premium plan"
+msgstr "Cloud Hosting - Plan Premium"
+
+#. module: subscription_oca
+#: model:product.template,name:subscription_oca.demo_product_hosting_standard_product_template
+msgid "Cloud Hosting - Standard plan"
+msgstr "Cloud Hosting - Plan Estándar"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__code
@@ -209,14 +378,30 @@ msgstr "Índice de Color"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__user_id
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__user_id
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
+#: model_terms:ir.ui.view,arch_db:subscription_oca.view_sale_order_pending_filter
 msgid "Commercial agent"
 msgstr "Agente comercial"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__company_id
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__company_id
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__company_id
 msgid "Company"
 msgstr "Compañía"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__company_currency_id
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__company_currency_id
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__company_currency_id
+msgid "Company Currency"
+msgstr "Moneda de la compañía"
+
+#. module: subscription_oca
+#: model:ir.model,name:subscription_oca.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
 
 #. module: subscription_oca
 #: model:ir.ui.menu,name:subscription_oca.sale_subscription_configuration_menu
@@ -239,10 +424,26 @@ msgid "Create Invoice"
 msgstr "Crear Factura"
 
 #. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
+msgid ""
+"Create a renewal quote of this subscription. Activating the renewal will "
+"close the current one."
+msgstr ""
+"Crear un presupuesto de renovación de esta suscripción. Al activar la "
+"renovación se cerrará la actual."
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__create_sale_order
+msgid "Create sale order"
+msgstr "Crear pedido de venta"
+
+#. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_close_reason_wizard__create_uid
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__create_uid
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_change_partner_wizard__create_uid
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_close_reason__create_uid
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__create_uid
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_pause_wizard__create_uid
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_stage__create_uid
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_tag__create_uid
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__create_uid
@@ -252,15 +453,16 @@ msgstr "Creado por"
 #. module: subscription_oca
 #. odoo-python
 #: code:addons/subscription_oca/models/sale_subscription.py:0
-#, python-format
 msgid "Created invoice with reference"
 msgstr "Factura creada con referencia"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_close_reason_wizard__create_date
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__create_date
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_change_partner_wizard__create_date
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_close_reason__create_date
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__create_date
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_pause_wizard__create_date
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_stage__create_date
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_tag__create_date
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__create_date
@@ -274,6 +476,38 @@ msgid "Currency"
 msgstr "Divisa"
 
 #. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__partner_id
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/wizard/sale_subscription_change_partner_wizard.py:0
+msgid "Customer changed from %(old)s to %(new)s."
+msgstr "Cliente cambiado de %(old)s a %(new)s."
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_change_partner_wizard_view
+msgid ""
+"Customer that will own the selected subscriptions from now on. Already "
+"issued invoices are not reassigned; future invoices and orders use the new "
+"customer."
+msgstr ""
+"Cliente que será el propietario de las suscripciones seleccionadas a partir "
+"de ahora. Las facturas ya emitidas no se reasignan; las futuras facturas y "
+"pedidos usan el nuevo cliente."
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.res_config_settings_view_form
+msgid ""
+"Date format used for the billed period shown on invoice lines. Leave empty "
+"to use the customer language format."
+msgstr ""
+"Formato de fecha usado para el periodo facturado mostrado en las líneas de "
+"factura. Déjelo vacío para usar el formato del idioma del cliente."
+
+#. module: subscription_oca
 #: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_template__recurring_rule_type__days
 msgid "Day(s)"
 msgstr "Día(s)"
@@ -282,6 +516,20 @@ msgstr "Día(s)"
 #: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_kanban
 msgid "Delete"
 msgstr "Borrar"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__partner_shipping_id
+msgid "Delivery address"
+msgstr "Dirección de entrega"
+
+#. module: subscription_oca
+#: model:ir.model.fields,help:subscription_oca.field_sale_subscription__partner_shipping_id
+msgid ""
+"Delivery address used on the recurring invoices and orders. Defaults to the "
+"customer's delivery address."
+msgstr ""
+"Dirección de entrega usada en las facturas y pedidos recurrentes. Por "
+"defecto, la dirección de entrega del cliente."
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__description
@@ -296,22 +544,37 @@ msgid "Discount (%)"
 msgstr "(%) Descuento"
 
 #. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_account_move__display_name
+#: model:ir.model.fields,field_description:subscription_oca.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:subscription_oca.field_close_reason_wizard__display_name
+#: model:ir.model.fields,field_description:subscription_oca.field_product_template__display_name
+#: model:ir.model.fields,field_description:subscription_oca.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:subscription_oca.field_res_partner__display_name
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_order__display_name
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_order_line__display_name
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__display_name
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_change_partner_wizard__display_name
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_close_reason__display_name
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__display_name
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_pause_wizard__display_name
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__display_name
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_stage__display_name
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_tag__display_name
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__display_name
 msgid "Display Name"
-msgstr "Mostrar Nombre"
+msgstr "Nombre para mostrar"
 
 #. module: subscription_oca
-#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_stage__display_name
-msgid "Display name"
-msgstr "Mostrar nombre"
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__distribution_analytic_account_ids
+msgid "Distribution Analytic Account"
+msgstr "Cuenta analítica de distribución"
 
 #. module: subscription_oca
-#: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_template__invoicing_mode__draft
+#: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_report__stage_type__draft
+#: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_stage__type__draft
+#: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_template__invoice_state__draft
+#: model:sale.subscription.stage,name:subscription_oca.subscription_stage_draft
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
 msgid "Draft"
 msgstr "Borrador"
 
@@ -326,9 +589,20 @@ msgid "Edit"
 msgstr "Editar"
 
 #. module: subscription_oca
+#: model:product.template,name:subscription_oca.demo_product_storage_addon_product_template
+msgid "Extra storage add-on (1 TB)"
+msgstr "Complemento de almacenamiento extra (1 TB)"
+
+#. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__date
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__date_end
 msgid "Finish date"
 msgstr "Fecha de fin"
+
+#. module: subscription_oca
+#: model:ir.model.fields,help:subscription_oca.field_account_move_line__subscription_period_start
+msgid "First day of the subscription period billed by this line."
+msgstr "Primer día del periodo de suscripción facturado por esta línea."
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__fiscal_position_id
@@ -361,15 +635,34 @@ msgid "Forever"
 msgstr "Para Siempre"
 
 #. module: subscription_oca
+#: model:ir.model.fields,help:subscription_oca.field_sale_subscription_template__create_sale_order
+msgid ""
+"Generate a confirmed sale order before invoicing. Required for the "
+"subscription to appear in Sales analysis reports."
+msgstr ""
+"Genera un pedido de venta confirmado antes de facturar. Necesario para que "
+"la suscripción aparezca en los informes de análisis de ventas."
+
+#. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__has_message
 msgid "Has Message"
 msgstr "Tiene Mensaje"
 
 #. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_account_move__id
+#: model:ir.model.fields,field_description:subscription_oca.field_account_move_line__id
 #: model:ir.model.fields,field_description:subscription_oca.field_close_reason_wizard__id
+#: model:ir.model.fields,field_description:subscription_oca.field_product_template__id
+#: model:ir.model.fields,field_description:subscription_oca.field_res_config_settings__id
+#: model:ir.model.fields,field_description:subscription_oca.field_res_partner__id
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_order__id
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_order_line__id
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__id
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_change_partner_wizard__id
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_close_reason__id
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__id
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_pause_wizard__id
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__id
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_stage__id
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_tag__id
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__id
@@ -393,8 +686,36 @@ msgstr "Si está marcada, nuevos mensajes requieren tu atención."
 
 #. module: subscription_oca
 #: model:ir.model.fields,help:subscription_oca.field_sale_subscription__message_has_error
+#: model:ir.model.fields,help:subscription_oca.field_sale_subscription__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Si está marcada, algunos mensajes tienen error de entrega."
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_change_partner_wizard_view
+msgid ""
+"If set, recompute the fiscal position from the new customer and the "
+"subscription company."
+msgstr ""
+"Si se marca, recalcula la posición fiscal a partir del nuevo cliente y la "
+"compañía de la suscripción."
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_change_partner_wizard_view
+msgid ""
+"If set, replace each subscription's pricelist with the new customer's sale "
+"pricelist."
+msgstr ""
+"Si se marca, reemplaza la tarifa de cada suscripción por la tarifa de venta "
+"del nuevo cliente."
+
+#. module: subscription_oca
+#: model:ir.model.fields,help:subscription_oca.field_sale_subscription__paused_until
+msgid ""
+"If set, the cron will automatically resume this subscription on or after "
+"this date."
+msgstr ""
+"Si se marca, el cron reanudará automáticamente esta suscripción en esta "
+"fecha o después."
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__image
@@ -403,22 +724,19 @@ msgstr "Imagen"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__in_progress
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__in_progress
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_stage__in_progress
+#: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_report__stage_type__in_progress
 #: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_stage__type__in_progress
 #: model:sale.subscription.stage,name:subscription_oca.subscription_stage_in_progress
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
 msgid "In progress"
 msgstr "En progreso"
 
 #. module: subscription_oca
-#: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_template__invoicing_mode__invoice
 #: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_template_form
 msgid "Invoice"
 msgstr "Factura"
-
-#. module: subscription_oca
-#: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_template__invoicing_mode__invoice_send
-msgid "Invoice & send"
-msgstr "Facturar y enviar"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__account_invoice_ids_count
@@ -429,6 +747,16 @@ msgstr "Conteo de Facturas"
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__invoice_mail_template_id
 msgid "Invoice Email"
 msgstr "Correo Electrónico de Facturación"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__partner_invoice_id
+msgid "Invoice address"
+msgstr "Dirección de facturación"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__invoice_state
+msgid "Invoice status"
+msgstr "Estado de la factura"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__invoice_ids
@@ -442,14 +770,14 @@ msgid "Invoicing"
 msgstr "Facturación"
 
 #. module: subscription_oca
-#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__invoicing_mode
-msgid "Invoicing mode"
-msgstr "Modo de facturación"
-
-#. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__message_is_follower
 msgid "Is Follower"
 msgstr "Es Seguidor/a"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__is_renewed
+msgid "Is Renewed"
+msgstr "Renovada"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__journal_id
@@ -459,7 +787,12 @@ msgstr "Dario"
 #. module: subscription_oca
 #: model:ir.model,name:subscription_oca.model_account_move
 msgid "Journal Entry"
-msgstr "Entrada Diaria"
+msgstr "Asiento contable"
+
+#. module: subscription_oca
+#: model:ir.model,name:subscription_oca.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_stage__fold
@@ -469,8 +802,10 @@ msgstr "Kanban plegado"
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_close_reason_wizard__write_uid
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__write_uid
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_change_partner_wizard__write_uid
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_close_reason__write_uid
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__write_uid
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_pause_wizard__write_uid
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_stage__write_uid
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_tag__write_uid
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__write_uid
@@ -480,8 +815,10 @@ msgstr "Última Actualización por"
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_close_reason_wizard__write_date
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__write_date
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_change_partner_wizard__write_date
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_close_reason__write_date
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__write_date
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_pause_wizard__write_date
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_stage__write_date
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_tag__write_date
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__write_date
@@ -489,9 +826,15 @@ msgid "Last Updated on"
 msgstr "Ultima Actualización el"
 
 #. module: subscription_oca
-#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_kanban
-msgid "Menú desplegable"
-msgstr "Menú desplegable"
+#: model:ir.model.fields,help:subscription_oca.field_account_move_line__subscription_period_end
+msgid "Last day of the subscription period billed by this line."
+msgstr "Último día del periodo de suscripción facturado por esta línea."
+
+#. module: subscription_oca
+#: model:ir.actions.act_window,name:subscription_oca.sale_subscription_report_mrr_action
+#: model:ir.ui.menu,name:subscription_oca.sale_subscription_report_mrr_menu
+msgid "MRR Breakdown"
+msgstr "Desglose de MRR"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__message_has_error
@@ -506,12 +849,19 @@ msgstr "Mensajes"
 #. module: subscription_oca
 #: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
 msgid "Misc"
-msgstr "Misc"
+msgstr "Varios"
 
 #. module: subscription_oca
 #: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_template__recurring_rule_type__months
 msgid "Month(s)"
 msgstr "Mes(es)"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__recurring_monthly
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__recurring_monthly
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__recurring_monthly
+msgid "Monthly recurring revenue"
+msgstr "Ingresos recurrentes mensuales"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__my_activity_date_deadline
@@ -525,6 +875,11 @@ msgstr "Fecha Límite de Mi Actividad"
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__name
 msgid "Name"
 msgstr "Nombre"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_change_partner_wizard__partner_id
+msgid "New customer"
+msgstr "Nuevo cliente"
 
 #. module: subscription_oca
 #: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
@@ -548,8 +903,37 @@ msgstr "Tipo Siguiente Actividad"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__recurring_next_date
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__recurring_next_date
+#: model_terms:ir.ui.view,arch_db:subscription_oca.view_sale_order_pending_filter
 msgid "Next invoice date"
 msgstr "Fecha siguiente factura"
+
+#. module: subscription_oca
+#: model_terms:ir.actions.act_window,help:subscription_oca.sale_subscription_report_churn_action
+msgid "No closed subscriptions yet"
+msgstr "Aún no hay suscripciones cerradas"
+
+#. module: subscription_oca
+#: model_terms:ir.actions.act_window,help:subscription_oca.sale_subscription_report_action
+msgid "No data to analyse yet"
+msgstr "Aún no hay datos para analizar"
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_order.py:0
+msgid "No pricelist found to create subscription."
+msgstr "No se ha encontrado ninguna tarifa para crear la suscripción."
+
+#. module: subscription_oca
+#: model_terms:ir.actions.act_window,help:subscription_oca.sale_subscription_report_mrr_action
+msgid "No recurring revenue yet"
+msgstr "Aún no hay ingresos recurrentes"
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/wizard/sale_subscription_change_partner_wizard.py:0
+msgid "No subscriptions selected to change customer on."
+msgstr "No se han seleccionado suscripciones para cambiarles el cliente."
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__message_needaction_counter
@@ -564,12 +948,26 @@ msgstr "Número de errores"
 #. module: subscription_oca
 #: model:ir.model.fields,help:subscription_oca.field_sale_subscription__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr ""
+msgstr "Número de mensajes que requieren una acción"
 
 #. module: subscription_oca
 #: model:ir.model.fields,help:subscription_oca.field_sale_subscription__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr "Número de mensajes con error de entrega"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
+msgid "Open the subscription this one was renewed from."
+msgstr "Abrir la suscripción desde la que se renovó esta."
+
+#. module: subscription_oca
+#: model:ir.model.fields,help:subscription_oca.field_sale_subscription_pause_wizard__paused_until
+msgid ""
+"Optional date on which the subscription is automatically resumed by the "
+"cron. Leave empty to pause indefinitely."
+msgstr ""
+"Fecha opcional en la que el cron reanuda automáticamente la suscripción. "
+"Déjelo vacío para pausar indefinidamente."
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__sale_order_ids
@@ -582,19 +980,84 @@ msgid "Origin sale order"
 msgstr "Orden de venta en origen"
 
 #. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__origin_subscription_id
+msgid "Original contract"
+msgstr "Contrato original"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.view_sale_order_pending_filter
+msgid "Originals"
+msgstr "Originales"
+
+#. module: subscription_oca
 #: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
 msgid "Other info"
 msgstr "Otra información"
 
 #. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__parent_subscription_id
+#: model_terms:ir.ui.view,arch_db:subscription_oca.view_sale_order_pending_filter
+msgid "Parent contract"
+msgstr "Contrato padre"
+
+#. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__partner_id
+#: model_terms:ir.ui.view,arch_db:subscription_oca.view_sale_order_pending_filter
 msgid "Partner"
 msgstr "Socio"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.pause_subscription_wizard_view
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
+msgid "Pause"
+msgstr "Pausar"
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_subscription.py:0
+#: model_terms:ir.ui.view,arch_db:subscription_oca.pause_subscription_wizard_view
+msgid "Pause subscription"
+msgstr "Pausar suscripción"
+
+#. module: subscription_oca
+#: model:ir.model,name:subscription_oca.model_sale_subscription_pause_wizard
+msgid "Pause subscription wizard"
+msgstr "Asistente para pausar suscripción"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
+msgid "Pause the subscription so the cron skips it until resumed."
+msgstr "Pausa la suscripción para que el cron la omita hasta que se reanude."
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__is_paused
+#: model_terms:ir.ui.view,arch_db:subscription_oca.view_sale_order_pending_filter
+msgid "Paused"
+msgstr "Pausada"
 
 #. module: subscription_oca
 #: model_terms:ir.ui.view,arch_db:subscription_oca.view_sale_order_pending_filter
 msgid "Pending subscriptions"
 msgstr "Subscripciones pendientes"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.res_config_settings_view_form
+msgid "Period date format"
+msgstr "Formato de fecha del periodo"
+
+#. module: subscription_oca
+#: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_template__invoice_state__posted
+msgid "Posted"
+msgstr "Publicada"
+
+#. module: subscription_oca
+#: model:product.template,description_sale:subscription_oca.demo_product_hosting_premium_product_template
+msgid ""
+"Premium cloud hosting plan: 8 vCPU, 32 GB RAM, hourly backups and priority "
+"support."
+msgstr ""
+"Plan de cloud hosting premium: 8 vCPU, 32 GB RAM, copias de seguridad cada "
+"hora y soporte prioritario."
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__pricelist_id
@@ -604,8 +1067,16 @@ msgstr "Lista de Precios"
 #. module: subscription_oca
 #: model:ir.model,name:subscription_oca.model_product_template
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__product_id
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__product_id
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
 msgid "Product"
 msgstr "Producto"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__categ_id
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
+msgid "Product Category"
+msgstr "Categoría de producto"
 
 #. module: subscription_oca
 #: model:ir.actions.act_window,name:subscription_oca.subscription_product_template_action
@@ -617,17 +1088,31 @@ msgstr "Productos"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__product_uom_qty
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__product_uom_qty
 msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: subscription_oca
-#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__rating_ids
-msgid "Ratings"
+#: model:product.template,description_sale:subscription_oca.demo_product_training_pack_product_template
+msgid "Quarterly live training sessions for up to 10 attendees."
 msgstr ""
+"Sesiones de formación en directo trimestrales para hasta 10 asistentes."
 
 #. module: subscription_oca
+#: model:product.template,name:subscription_oca.demo_product_training_pack_product_template
+msgid "Quarterly online training pack"
+msgstr "Pack de formación online trimestral"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__rating_ids
+msgid "Ratings"
+msgstr "Valoraciones"
+
+#. module: subscription_oca
+#: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_report__stage_type__pre
 #: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_stage__type__pre
-#: model:sale.subscription.stage,name:subscription_oca.subscription_stage_draft
+#: model:sale.subscription.stage,name:subscription_oca.subscription_stage_ready
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
 msgid "Ready to start"
 msgstr "Listo para empezar"
 
@@ -635,6 +1120,11 @@ msgstr "Listo para empezar"
 #: model:ir.model.fields,field_description:subscription_oca.field_close_reason_wizard__close_reason_id
 msgid "Reason"
 msgstr "Razón"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_change_partner_wizard__update_fiscal_position
+msgid "Recompute fiscal position"
+msgstr "Recalcular posición fiscal"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__recurring_rule_type
@@ -647,9 +1137,44 @@ msgid "Recurring price"
 msgstr "Precio recurrente"
 
 #. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_subscription.py:0
+msgid "Recurring revenue"
+msgstr "Ingresos recurrentes"
+
+#. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__code
 msgid "Reference"
 msgstr "Referencia"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
+msgid "Renew"
+msgstr "Renovar"
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_subscription.py:0
+msgid "Renewal %(link)s has been activated."
+msgstr "La renovación %(link)s se ha activado."
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__renewal_count
+msgid "Renewal count"
+msgstr "Número de renovaciones"
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_subscription.py:0
+msgid "Renewal quote created: %(link)s."
+msgstr "Presupuesto de renovación creado: %(link)s."
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__child_subscription_ids
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
+#: model_terms:ir.ui.view,arch_db:subscription_oca.view_sale_order_pending_filter
+msgid "Renewals"
+msgstr "Renovaciones"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__recurring_interval
@@ -657,9 +1182,30 @@ msgid "Repeat every"
 msgstr "Repetir cada"
 
 #. module: subscription_oca
+#: model:ir.ui.menu,name:subscription_oca.sale_subscription_reporting_menu
+msgid "Reporting"
+msgstr "Informes"
+
+#. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__activity_user_id
 msgid "Responsible User"
 msgstr "Usuario Responsable"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
+msgid "Resume"
+msgstr "Reanudar"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__paused_until
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_pause_wizard__paused_until
+msgid "Resume on"
+msgstr "Reanudar el"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
+msgid "Resume scheduled on"
+msgstr "Reanudación programada el"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__recurring_rule_count
@@ -667,14 +1213,14 @@ msgid "Rule count"
 msgstr "Conteo de reglas"
 
 #. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de envío de SMS"
+
+#. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__sale_subscription_line_ids
 msgid "Sale Subscription Line"
 msgstr "Línea de Suscripciones de Venta"
-
-#. module: subscription_oca
-#: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_template__invoicing_mode__sale_and_invoice
-msgid "Sale order & Invoice"
-msgstr "Orden de venta y factura"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__sale_order_ids_count
@@ -683,6 +1229,8 @@ msgstr "Pedidos de venta"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__crm_team_id
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__crm_team_id
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
 msgid "Sale team"
 msgstr "Equipo de venta"
 
@@ -694,12 +1242,24 @@ msgstr "Ventas"
 #. module: subscription_oca
 #: model:ir.model,name:subscription_oca.model_sale_order
 msgid "Sales Order"
-msgstr "Orden de Venta"
+msgstr "Pedido de venta"
 
 #. module: subscription_oca
 #: model:ir.model,name:subscription_oca.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Línea de Orden de Venta"
+msgstr "Línea de pedido de venta"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__send_invoice
+msgid "Send invoice by email"
+msgstr "Enviar factura por correo electrónico"
+
+#. module: subscription_oca
+#: model:ir.model.fields,help:subscription_oca.field_sale_subscription_template__send_invoice
+msgid "Send the invoice by email once posted, using the template below."
+msgstr ""
+"Envía la factura por correo electrónico una vez publicada, usando la "
+"plantilla de abajo."
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__sequence
@@ -709,26 +1269,53 @@ msgstr "Secuencia"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__stage_id
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__stage_id
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
+#: model_terms:ir.ui.view,arch_db:subscription_oca.view_sale_order_pending_filter
 msgid "Stage"
 msgstr "Etapa"
 
 #. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__stage_type
+msgid "Stage type"
+msgstr "Tipo de etapa"
+
+#. module: subscription_oca
 #: model_terms:ir.ui.view,arch_db:subscription_oca.view_subscription_stage_form
 msgid ""
-"Stages define the life-cycle of a given subscription; this "
-"is,                 a subscription can be a 'Ready to start', 'In progress' "
-"or 'Closed' type of stage.                 Bear in mind that there can only "
-"be one 'Closed'-type stage."
+"Stages define the life-cycle of a given subscription; this is,"
+"                 a subscription can be a 'Ready to start', 'In progress' or "
+"'Closed' type of stage.                 Bear in mind that there can only be "
+"one 'Closed'-type stage."
 msgstr ""
 "Las etapas definen el ciclo de vida de una suscripción determinada; es "
 "decir,                                  una suscripción puede ser de tipo "
-"\"Lista para empezar\", \"En curso\" o \"Cerrada\".                 Tenga en "
-"cuenta que sólo puede haber una etapa de tipo \"Cerrada\"."
+"\"Lista para empezar\", \"En curso\" o \"Cerrada\".                 Tenga en"
+" cuenta que sólo puede haber una etapa de tipo \"Cerrada\"."
+
+#. module: subscription_oca
+#: model:product.template,description_sale:subscription_oca.demo_product_hosting_standard_product_template
+msgid "Standard cloud hosting plan: 2 vCPU, 4 GB RAM, daily backups."
+msgstr ""
+"Plan de cloud hosting estándar: 2 vCPU, 4 GB RAM, copias de seguridad "
+"diarias."
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__date_start
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__date_start
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
 msgid "Start date"
 msgstr "Fecha inicio"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
+msgid "Start month"
+msgstr "Mes de inicio"
+
+#. module: subscription_oca
+#: model:ir.model.fields,help:subscription_oca.field_sale_subscription_template__invoice_state
+msgid "State in which the generated invoice is left."
+msgstr "Estado en el que se deja la factura generada."
 
 #. module: subscription_oca
 #: model:ir.model.fields,help:subscription_oca.field_sale_subscription__activity_state
@@ -753,17 +1340,32 @@ msgstr "Producto suscribible"
 #: model:ir.model,name:subscription_oca.model_sale_subscription
 #: model:ir.model.fields,field_description:subscription_oca.field_account_bank_statement_line__subscription_id
 #: model:ir.model.fields,field_description:subscription_oca.field_account_move__subscription_id
-#: model:ir.model.fields,field_description:subscription_oca.field_account_payment__subscription_id
+#: model:ir.model.fields,field_description:subscription_oca.field_account_move_line__subscription_id
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_order__order_subscription_id
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__sale_subscription_id
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__subscription_id
+#: model_terms:ir.ui.view,arch_db:subscription_oca.view_move_form
 msgid "Subscription"
 msgstr "Suscripción"
+
+#. module: subscription_oca
+#: model:ir.model,name:subscription_oca.model_sale_subscription_report
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_graph
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_pivot
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
+msgid "Subscription Analysis"
+msgstr "Análisis de suscripciones"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_res_partner__subscription_count
 #: model:ir.model.fields,field_description:subscription_oca.field_res_users__subscription_count
 msgid "Subscription Count"
 msgstr "Conteo de Suscripciones"
+
+#. module: subscription_oca
+#: model:product.pricelist,name:subscription_oca.demo_subscription_pricelist
+msgid "Subscription demo pricelist"
+msgstr "Tarifa demo de suscripciones"
 
 #. module: subscription_oca
 #: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_form
@@ -774,6 +1376,45 @@ msgstr "Líneas de suscripción"
 #: model:ir.model,name:subscription_oca.model_sale_subscription_line
 msgid "Subscription lines added to a given subscription"
 msgstr "Líneas de suscripción agregadas a una suscripción determinada"
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_subscription.py:0
+msgid "Subscription paused until %(date)s."
+msgstr "Suscripción pausada hasta el %(date)s."
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_subscription.py:0
+msgid "Subscription paused."
+msgstr "Suscripción pausada."
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_res_config_settings__subscription_period_date_format
+msgid "Subscription period date format"
+msgstr "Formato de fecha del periodo de suscripción"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_account_move_line__subscription_period_end
+msgid "Subscription period end"
+msgstr "Fin del periodo de suscripción"
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_account_move_line__subscription_period_start
+msgid "Subscription period start"
+msgstr "Inicio del periodo de suscripción"
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_subscription.py:0
+msgid "Subscription resumed automatically."
+msgstr "Suscripción reanudada automáticamente."
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_subscription.py:0
+msgid "Subscription resumed."
+msgstr "Suscripción reanudada."
 
 #. module: subscription_oca
 #: model:ir.model,name:subscription_oca.model_sale_subscription_stage
@@ -795,6 +1436,8 @@ msgstr "Etiquetas de suscripción"
 #: model:ir.model.fields,field_description:subscription_oca.field_product_product__subscription_template_id
 #: model:ir.model.fields,field_description:subscription_oca.field_product_template__subscription_template_id
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__template_id
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__template_id
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
 msgid "Subscription template"
 msgstr "Plantilla de suscripción"
 
@@ -806,18 +1449,31 @@ msgid "Subscription templates"
 msgstr "Plantillas de suscripción"
 
 #. module: subscription_oca
+#: model:ir.model.fields,help:subscription_oca.field_account_move_line__subscription_id
+msgid "Subscription this invoice line was generated from."
+msgstr "Suscripción a partir de la cual se generó esta línea de factura."
+
+#. module: subscription_oca
 #: model:ir.actions.act_window,name:subscription_oca.sale_subscription_action
 #: model:ir.model.fields,field_description:subscription_oca.field_res_partner__subscription_ids
 #: model:ir.model.fields,field_description:subscription_oca.field_res_users__subscription_ids
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_order__subscription_ids
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_change_partner_wizard__subscription_ids
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__subscription_ids
 #: model:ir.ui.menu,name:subscription_oca.sale_subscription_menu
 #: model:ir.ui.menu,name:subscription_oca.sale_subscription_root
 #: model:ir.ui.menu,name:subscription_oca.subscription_menu
+#: model_terms:ir.ui.view,arch_db:subscription_oca.res_config_settings_view_form
 #: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_template_form
 #: model_terms:ir.ui.view,arch_db:subscription_oca.view_sale_order_form
 msgid "Subscriptions"
 msgstr "Suscripciones"
+
+#. module: subscription_oca
+#: model:ir.actions.act_window,name:subscription_oca.sale_subscription_report_action
+#: model:ir.ui.menu,name:subscription_oca.sale_subscription_report_menu
+msgid "Subscriptions Analysis"
+msgstr "Análisis de suscripciones"
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_order__subscriptions_count
@@ -830,9 +1486,37 @@ msgid "Subscriptions management"
 msgstr "Gestión de suscripciones"
 
 #. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_template_form
+msgid ""
+"Subscriptions using this template will not\n"
+"                                        generate a sale order, so they will not appear\n"
+"                                        in Sales analysis reports."
+msgstr ""
+"Las suscripciones que usen esta plantilla no generarán un pedido de venta, "
+"por lo que no aparecerán en los informes de análisis de ventas."
+
+#. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_line__price_subtotal
 msgid "Subtotal"
 msgstr "Subtotal"
+
+#. module: subscription_oca
+#: model:ir.model.fields,help:subscription_oca.field_sale_subscription_line__recurring_monthly
+msgid ""
+"Subtotal of this line normalised to a monthly amount and converted to the "
+"company currency, based on the template recurrence."
+msgstr ""
+"Subtotal de esta línea normalizado a un importe mensual y convertido a la "
+"moneda de la compañía, según la recurrencia de la plantilla."
+
+#. module: subscription_oca
+#: model:ir.model.fields,help:subscription_oca.field_sale_subscription__recurring_monthly
+msgid ""
+"Sum of the subscription lines normalised to a monthly amount, expressed in "
+"the company currency."
+msgstr ""
+"Suma de las líneas de suscripción normalizada a un importe mensual, "
+"expresada en la moneda de la compañía."
 
 #. module: subscription_oca
 #: model:ir.actions.act_window,name:subscription_oca.subscription_stage_action
@@ -884,9 +1568,19 @@ msgstr "Términos y condiciones"
 #. module: subscription_oca
 #. odoo-python
 #: code:addons/subscription_oca/models/sale_subscription_stage.py:0
-#, python-format
 msgid "There is already a Closed-type stage declared"
 msgstr "Ya se ha declarado una etapa de tipo Cerrado"
+
+#. module: subscription_oca
+#: model_terms:ir.actions.act_window,help:subscription_oca.sale_subscription_report_action
+msgid ""
+"This analysis aggregates the recurring revenue of your\n"
+"                subscriptions per line, so you can group it by customer,\n"
+"                template, product or salesperson."
+msgstr ""
+"Este análisis agrega los ingresos recurrentes de sus\n"
+"                suscripciones por línea, de modo que pueda agruparlos por cliente,\n"
+"                plantilla, producto o comercial."
 
 #. module: subscription_oca
 #: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_kanban
@@ -910,14 +1604,37 @@ msgstr ""
 "tener una etapa de tipo 'Cerrada' antes de una 'Lista para empezar'."
 
 #. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_subscription.py:0
+msgid ""
+"This subscription already has an active renewal (%(names)s). Close or cancel"
+" it before creating a new one."
+msgstr ""
+"Esta suscripción ya tiene una renovación activa (%(names)s). Ciérrela o "
+"cancélela antes de crear una nueva."
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_subscription.py:0
+msgid "This subscription is already paused."
+msgstr "Esta suscripción ya está pausada."
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/models/sale_subscription.py:0
+msgid "This subscription is not paused."
+msgstr "Esta suscripción no está pausada."
+
+#. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__to_renew
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_report__to_renew
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_report_view_search
 msgid "To renew"
 msgstr "Para renovar"
 
 #. module: subscription_oca
 #. odoo-python
 #: code:addons/subscription_oca/models/sale_subscription.py:0
-#, python-format
 msgid "To validate"
 msgstr "Para Validar"
 
@@ -928,16 +1645,38 @@ msgid "Total"
 msgstr "Total"
 
 #. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_line_recurring_revenue_list
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_tree
+msgid "Total MRR"
+msgstr "MRR total"
+
+#. module: subscription_oca
 #: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_tree
 msgid "Total Tax"
 msgstr "Impuesto Total"
 
 #. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_line_recurring_revenue_list
 #: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_tree
 msgid "Total subtotal"
 msgstr "Subtotal total"
 
 #. module: subscription_oca
+#: model:ir.model.fields,help:subscription_oca.field_sale_subscription__is_renewed
+msgid ""
+"True when this subscription has at least one child that is not closed yet — "
+"its renewal is active or pending."
+msgstr ""
+"Verdadero cuando esta suscripción tiene al menos un hijo que aún no está "
+"cerrado, es decir, su renovación está activa o pendiente."
+
+#. module: subscription_oca
+#: model:ir.model.fields,help:subscription_oca.field_sale_subscription__recurring_yearly
+msgid "Twelve times the monthly recurring revenue."
+msgstr "Doce veces los ingresos recurrentes mensuales."
+
+#. module: subscription_oca
+#: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription__stage_type
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_stage__type
 msgid "Type"
 msgstr "Tipo"
@@ -968,14 +1707,44 @@ msgid "Week(s)"
 msgstr "Semana(s)"
 
 #. module: subscription_oca
+#: model:ir.model.fields,help:subscription_oca.field_sale_subscription__is_paused
+msgid ""
+"When ticked, the recurring cron will skip this subscription until it is "
+"resumed manually or until `paused_until` is reached."
+msgstr ""
+"Cuando se marca, el cron periódico omitirá esta suscripción hasta que se "
+"reanude manualmente o hasta que se alcance `paused_until`."
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.view_sale_order_pending_filter
+msgid "With recurring revenue"
+msgstr "Con ingresos recurrentes"
+
+#. module: subscription_oca
 #: model:ir.model.fields.selection,name:subscription_oca.selection__sale_subscription_template__recurring_rule_type__years
 msgid "Year(s)"
 msgstr "Año(s)"
 
 #. module: subscription_oca
+#: model:product.template,description_sale:subscription_oca.demo_product_maintenance_plan_product_template
+msgid "Yearly preventive maintenance visit and parts coverage."
+msgstr "Visita anual de mantenimiento preventivo y cobertura de piezas."
+
+#. module: subscription_oca
+#. odoo-python
+#: code:addons/subscription_oca/tests/test_subscription_cron.py:0
+msgid "boom"
+msgstr ""
+
+#. module: subscription_oca
 #: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_template_form
 msgid "e.g. Monthly Subscription"
 msgstr "p. ej. Suscripción Mensual"
+
+#. module: subscription_oca
+#: model_terms:ir.ui.view,arch_db:subscription_oca.res_config_settings_view_form
+msgid "e.g. dd/MM/yyyy"
+msgstr "p. ej. dd/MM/yyyy"
 
 #. module: subscription_oca
 #: model_terms:ir.ui.view,arch_db:subscription_oca.sale_subscription_template_form
@@ -985,33 +1754,9 @@ msgstr "Mes(es)"
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__product_ids_count
 msgid "product_ids"
-msgstr "product_ids"
+msgstr ""
 
 #. module: subscription_oca
 #: model:ir.model.fields,field_description:subscription_oca.field_sale_subscription_template__subscription_count
 msgid "subscription_ids"
-msgstr "subscription_ids"
-
-#~ msgid "Etapa"
-#~ msgstr "Etapa"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Última Modificación el"
-
-#~ msgid "Main Attachment"
-#~ msgstr "Adjunto Principal"
-
-#~ msgid "Number of messages which requires an action"
-#~ msgstr "Número de mensajes que requieren una acción"
-
-#~ msgid "Number of unread messages"
-#~ msgstr "Número de mensajes no leídos"
-
-#~ msgid "Product Template"
-#~ msgstr "Plantilla del Producto"
-
-#~ msgid "Unread Messages"
-#~ msgstr "Mensajes no Leídos"
-
-#~ msgid "Unread Messages Counter"
-#~ msgstr "Contador de Mensajes no Leídos"
+msgstr ""
