@@ -357,32 +357,15 @@ class SaleSubscriptionLine(models.Model):
             "analytic_distribution": self.analytic_distribution,
         }
 
-    def _prepare_account_move_line(self, period_start=False, period_end=False):
+    def _prepare_account_move_line(self):
         self.ensure_one()
         account = (
             self.product_id.property_account_income_id
             or self.product_id.categ_id.property_account_income_categ_id
         )
-        name = self.name
-        if period_start and period_end:
-            lang_code = get_lang(
-                self.env, self.sale_subscription_id.partner_id.lang
-            ).code
-            date_format = (
-                self.env["ir.config_parameter"]
-                .sudo()
-                .get_param("subscription_oca.period_date_format")
-            )
-            start_str = format_date(
-                self.env, period_start, lang_code=lang_code, date_format=date_format
-            )
-            end_str = format_date(
-                self.env, period_end, lang_code=lang_code, date_format=date_format
-            )
-            name = f"{name} ({start_str} - {end_str})"
         return {
             "product_id": self.product_id.id,
-            "name": name,
+            "name": self.name,
             "quantity": self.product_uom_qty,
             "price_unit": self.price_unit,
             "discount": self.discount,
@@ -392,6 +375,37 @@ class SaleSubscriptionLine(models.Model):
             "account_id": account.id,
             "analytic_distribution": self.analytic_distribution,
             "subscription_id": self.sale_subscription_id.id,
-            "subscription_period_start": period_start or False,
-            "subscription_period_end": period_end or False,
         }
+
+    def _apply_invoice_period(self, vals, period_start, period_end):
+        """Layer subscription period information on a move line values dict.
+
+        Kept separate from :meth:`_prepare_account_move_line` on purpose: that
+        method keeps its original signature so existing overrides (in this
+        module or in third-party ones) keep working across upgrades, while the
+        period data is added on top by the caller without forcing a signature
+        change on a widely overridden hook.
+        """
+        self.ensure_one()
+        if not (period_start and period_end):
+            return vals
+        lang_code = get_lang(self.env, self.sale_subscription_id.partner_id.lang).code
+        date_format = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("subscription_oca.period_date_format")
+        )
+        start_str = format_date(
+            self.env, period_start, lang_code=lang_code, date_format=date_format
+        )
+        end_str = format_date(
+            self.env, period_end, lang_code=lang_code, date_format=date_format
+        )
+        vals.update(
+            {
+                "name": f"{vals['name']} ({start_str} - {end_str})",
+                "subscription_period_start": period_start,
+                "subscription_period_end": period_end,
+            }
+        )
+        return vals

@@ -756,9 +756,8 @@ class SaleSubscription(models.Model):
         period_start, period_end = self._get_invoice_period()
         line_ids = []
         for line in self.sale_subscription_line_ids:
-            line_values = line._prepare_account_move_line(
-                period_start=period_start, period_end=period_end
-            )
+            line_values = line._prepare_account_move_line()
+            line._apply_invoice_period(line_values, period_start, period_end)
             line_ids.append(Command.create(line_values))
         invoice_values = self._prepare_account_move(line_ids)
         invoice_id = (
