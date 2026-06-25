@@ -709,5 +709,10 @@
   ],
   "lists": {},
   "listNextId": 1,
-  "chartOdooMenusReferences": {}
+  "chartOdooMenusReferences": {
+    "aaaaaaaa-0000-0000-0000-000000000001": "subscription_oca.sale_subscription_menu",
+    "aaaaaaaa-0000-0000-0000-000000000002": "subscription_oca.sale_subscription_menu",
+    "aaaaaaaa-0000-0000-0000-000000000003": "subscription_oca.sale_subscription_menu",
+    "aaaaaaaa-0000-0000-0000-000000000004": "subscription_oca.sale_subscription_menu"
+  }
 }
