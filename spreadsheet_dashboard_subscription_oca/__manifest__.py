@@ -11,6 +11,7 @@
     "depends": ["spreadsheet_dashboard", "subscription_oca"],
     "data": [
         "security/ir.model.access.csv",
+        "report/sql_report_views.xml",
         "data/spreadsheet_dashboards.xml",
     ],
     "auto_install": True,

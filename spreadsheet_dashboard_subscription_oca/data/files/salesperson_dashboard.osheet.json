@@ -198,6 +198,7 @@
             "type": "odoo_bar",
             "dataSets": [{}],
             "chartId": "bbbbbbbb-0000-0000-0000-000000000010",
+            "actionXmlId": "subscription_oca.sale_subscription_report_action",
             "fieldMatching": {
               "11111111-1111-1111-1111-111111111111": {
                 "chain": "user_id",
@@ -214,6 +215,11 @@
               "44444444-4444-4444-4444-444444444444": {
                 "chain": "template_id",
                 "type": "many2one"
+              },
+              "55555555-5555-5555-5555-555555555555": {
+                "chain": "date_start",
+                "type": "datetime",
+                "offset": 0
               }
             },
             "stacked": false
@@ -253,6 +259,7 @@
             "type": "odoo_pie",
             "dataSets": [{}],
             "chartId": "bbbbbbbb-0000-0000-0000-000000000011",
+            "actionXmlId": "subscription_oca.sale_subscription_report_action",
             "fieldMatching": {
               "11111111-1111-1111-1111-111111111111": {
                 "chain": "user_id",
@@ -269,6 +276,11 @@
               "44444444-4444-4444-4444-444444444444": {
                 "chain": "template_id",
                 "type": "many2one"
+              },
+              "55555555-5555-5555-5555-555555555555": {
+                "chain": "date_start",
+                "type": "datetime",
+                "offset": 0
               }
             }
           },
@@ -307,6 +319,7 @@
             "type": "odoo_bar",
             "dataSets": [{}],
             "chartId": "bbbbbbbb-0000-0000-0000-000000000012",
+            "actionXmlId": "subscription_oca.sale_subscription_report_action",
             "fieldMatching": {
               "11111111-1111-1111-1111-111111111111": {
                 "chain": "user_id",
@@ -323,6 +336,11 @@
               "44444444-4444-4444-4444-444444444444": {
                 "chain": "template_id",
                 "type": "many2one"
+              },
+              "55555555-5555-5555-5555-555555555555": {
+                "chain": "date_start",
+                "type": "datetime",
+                "offset": 0
               }
             },
             "stacked": false
@@ -362,6 +380,7 @@
             "type": "odoo_bar",
             "dataSets": [{}],
             "chartId": "bbbbbbbb-0000-0000-0000-000000000013",
+            "actionXmlId": "subscription_oca.sale_subscription_report_action",
             "fieldMatching": {
               "11111111-1111-1111-1111-111111111111": {
                 "chain": "user_id",
@@ -378,6 +397,11 @@
               "44444444-4444-4444-4444-444444444444": {
                 "chain": "template_id",
                 "type": "many2one"
+              },
+              "55555555-5555-5555-5555-555555555555": {
+                "chain": "date_start",
+                "type": "datetime",
+                "offset": 0
               }
             },
             "stacked": false
@@ -417,6 +441,7 @@
             "type": "odoo_pie",
             "dataSets": [{}],
             "chartId": "bbbbbbbb-0000-0000-0000-000000000014",
+            "actionXmlId": "subscription_oca.sale_subscription_report_action",
             "fieldMatching": {
               "11111111-1111-1111-1111-111111111111": {
                 "chain": "user_id",
@@ -433,6 +458,11 @@
               "44444444-4444-4444-4444-444444444444": {
                 "chain": "template_id",
                 "type": "many2one"
+              },
+              "55555555-5555-5555-5555-555555555555": {
+                "chain": "date_start",
+                "type": "datetime",
+                "offset": 0
               }
             }
           },
@@ -471,6 +501,7 @@
             "type": "odoo_bar",
             "dataSets": [{}],
             "chartId": "bbbbbbbb-0000-0000-0000-000000000015",
+            "actionXmlId": "subscription_oca.sale_subscription_report_action",
             "fieldMatching": {
               "11111111-1111-1111-1111-111111111111": {
                 "chain": "user_id",
@@ -487,6 +518,11 @@
               "44444444-4444-4444-4444-444444444444": {
                 "chain": "template_id",
                 "type": "many2one"
+              },
+              "55555555-5555-5555-5555-555555555555": {
+                "chain": "date_start",
+                "type": "datetime",
+                "offset": 0
               }
             },
             "stacked": true
@@ -573,6 +609,11 @@
         "44444444-4444-4444-4444-444444444444": {
           "chain": "template_id",
           "type": "many2one"
+        },
+        "55555555-5555-5555-5555-555555555555": {
+          "chain": "date_start",
+          "type": "datetime",
+          "offset": 0
         }
       },
       "context": {},
@@ -605,6 +646,12 @@
   "pivotNextId": 2,
   "customTableStyles": {},
   "globalFilters": [
+    {
+      "id": "55555555-5555-5555-5555-555555555555",
+      "type": "date",
+      "label": "Period",
+      "defaultValue": "last_90_days"
+    },
     {
       "id": "11111111-1111-1111-1111-111111111111",
       "type": "relation",
